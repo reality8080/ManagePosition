@@ -31,7 +31,7 @@
             this.userLabel = new System.Windows.Forms.Label();
             this.usertextBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.passwordCheckbox = new System.Windows.Forms.CheckBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@
             this.usertextBox.Location = new System.Drawing.Point(241, 26);
             this.usertextBox.Name = "usertextBox";
             this.usertextBox.Size = new System.Drawing.Size(348, 33);
-            this.usertextBox.TabIndex = 2;
+            this.usertextBox.TabIndex = 0;
             // 
             // LoginButton
             // 
@@ -67,24 +67,25 @@
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             this.LoginButton.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             // 
-            // checkBox1
+            // passwordCheckbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(241, 150);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(108, 23);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.passwordCheckbox.AutoSize = true;
+            this.passwordCheckbox.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordCheckbox.Location = new System.Drawing.Point(241, 150);
+            this.passwordCheckbox.Name = "passwordCheckbox";
+            this.passwordCheckbox.Size = new System.Drawing.Size(150, 23);
+            this.passwordCheckbox.TabIndex = 2;
+            this.passwordCheckbox.Text = "Hiển thị mật khẩu";
+            this.passwordCheckbox.UseVisualStyleBackColor = true;
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.Location = new System.Drawing.Point(241, 93);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(348, 33);
-            this.passwordTextBox.TabIndex = 6;
+            this.passwordTextBox.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -93,28 +94,32 @@
             this.passwordLabel.Location = new System.Drawing.Point(45, 101);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(109, 25);
-            this.passwordLabel.TabIndex = 5;
+            this.passwordLabel.TabIndex = 0;
             this.passwordLabel.Text = "Mật Khẩu";
             // 
             // exitButton
             // 
+            this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.exitButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(309, 179);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(141, 37);
-            this.exitButton.TabIndex = 7;
+            this.exitButton.TabIndex = 4;
             this.exitButton.Text = "Thoát";
             this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // Form1
             // 
+            this.AcceptButton = this.LoginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.exitButton;
             this.ClientSize = new System.Drawing.Size(601, 281);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.passwordCheckbox);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.usertextBox);
             this.Controls.Add(this.userLabel);
@@ -130,7 +135,7 @@
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.TextBox usertextBox;
         private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox passwordCheckbox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button exitButton;
