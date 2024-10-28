@@ -54,6 +54,7 @@
             this.usertextBox.Name = "usertextBox";
             this.usertextBox.Size = new System.Drawing.Size(348, 33);
             this.usertextBox.TabIndex = 0;
+            this.usertextBox.Text = "Nguyen Tran Thien Phu";
             // 
             // LoginButton
             // 
@@ -77,15 +78,17 @@
             this.passwordCheckbox.TabIndex = 2;
             this.passwordCheckbox.Text = "Hiển thị mật khẩu";
             this.passwordCheckbox.UseVisualStyleBackColor = true;
+            this.passwordCheckbox.CheckedChanged += new System.EventHandler(this.passwordCheckbox_CheckedChanged);
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.Location = new System.Drawing.Point(241, 93);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(348, 33);
             this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.Text = "231102";
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // passwordLabel
             // 
@@ -125,6 +128,8 @@
             this.Controls.Add(this.userLabel);
             this.Name = "Form1";
             this.Text = "LoginForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
