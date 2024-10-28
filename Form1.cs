@@ -24,12 +24,19 @@ namespace QuanLiNhanSu_YT
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-
+            //mainForm mainForm = new mainForm();
+            //mainForm.ShowDialog();
+            //this.Close();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
