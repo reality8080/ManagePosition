@@ -37,6 +37,7 @@ namespace QuanLiNhanSu_YT
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+
             string USERNAME= usertextBox.Text;
             string PASSWORD= passwordTextBox.Text;
             if (CheckLogin(USERNAME,PASSWORD))
@@ -59,6 +60,10 @@ namespace QuanLiNhanSu_YT
             (sender as mainForm).isExit=false;
             (sender as mainForm).Close();
             this.Show();
+            //mainForm mainForm = new mainForm();
+            //mainForm.ShowDialog();
+            //this.Close();
+
         }
 
         private void exitButton_Click(object sender, EventArgs e)

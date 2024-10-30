@@ -37,6 +37,7 @@
             this.canceltoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.updatetoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printtoolStripButton = new System.Windows.Forms.ToolStripButton();
+
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +50,7 @@
             this.informationPanel = new System.Windows.Forms.Panel();
             this.searchgroupBox = new System.Windows.Forms.GroupBox();
             this.searchButton = new System.Windows.Forms.Button();
+
             this.bỉthdaydateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.sexcomboBox = new System.Windows.Forms.ComboBox();
             this.IDtextBox = new System.Windows.Forms.TextBox();
@@ -60,16 +62,36 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.listEmployeeLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+
             this.toolPanel.SuspendLayout();
             this.toolStrip.SuspendLayout();
+
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.addtoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.addToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.repairtoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.RepairToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.erasetoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.eraseToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.canceltoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.cancelToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.updatetoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.updatetoolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.printtoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.printtoolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.toolPanel.SuspendLayout();
+
             this.menuStrip1.SuspendLayout();
             this.informationPanel.SuspendLayout();
             this.searchgroupBox.SuspendLayout();
             this.listPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolPanel
+
             // 
             this.toolPanel.Controls.Add(this.toolStrip);
             this.toolPanel.Controls.Add(this.menuStrip1);
@@ -144,6 +166,13 @@
             this.printtoolStripButton.Size = new System.Drawing.Size(44, 24);
             this.printtoolStripButton.Text = "In";
             // 
+            this.toolPanel.Controls.Add(this.toolStrip);
+            this.toolPanel.Controls.Add(this.menuStrip1);
+            this.toolPanel.Location = new System.Drawing.Point(-9, 0);
+            this.toolPanel.Name = "toolPanel";
+            this.toolPanel.Size = new System.Drawing.Size(917, 56);
+            this.toolPanel.TabIndex = 0;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
@@ -166,10 +195,17 @@
             this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem});
+
             this.systemToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
             this.systemToolStripMenuItem.Size = new System.Drawing.Size(81, 21);
             this.systemToolStripMenuItem.Text = "Hệ Thống";
+
+            this.hệThốngToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(81, 21);
+            this.hệThốngToolStripMenuItem.Text = "Hệ Thống";
+
             // 
             // userToolStripMenuItem
             // 
@@ -186,6 +222,7 @@
             // 
             // maganeToolStripMenuItem
             // 
+
             this.maganeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.employeeToolStripMenuItem,
             this.departmentToolStripMenuItem});
@@ -194,6 +231,15 @@
             this.maganeToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
             this.maganeToolStripMenuItem.Text = "Quản lí";
             this.maganeToolStripMenuItem.Click += new System.EventHandler(this.maganeToolStripMenuItem_Click);
+
+            this.quảnLíToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nhânViênToolStripMenuItem,
+            this.phòngBanToolStripMenuItem});
+            this.quảnLíToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quảnLíToolStripMenuItem.Name = "quảnLíToolStripMenuItem";
+            this.quảnLíToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
+            this.quảnLíToolStripMenuItem.Text = "Quản lí";
+
             // 
             // employeeToolStripMenuItem
             // 
@@ -249,6 +295,7 @@
             this.searchgroupBox.TabStop = false;
             this.searchgroupBox.Text = "Tìm kiếm";
             // 
+
             // searchButton
             // 
             this.searchButton.AutoSize = true;
@@ -262,6 +309,10 @@
             // 
             // bỉthdaydateTimePicker
             // 
+
+            // bỉthdaydateTimePicker
+            // 
+
             this.bỉthdaydateTimePicker.CalendarFont = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bỉthdaydateTimePicker.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bỉthdaydateTimePicker.Location = new System.Drawing.Point(149, 65);
@@ -337,6 +388,7 @@
             this.nameLabel.Size = new System.Drawing.Size(93, 22);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Họ và Tên";
+
             // 
             // listPanel
             // 
@@ -356,6 +408,162 @@
             this.listEmployeeLabel.Size = new System.Drawing.Size(190, 23);
             this.listEmployeeLabel.TabIndex = 1;
             this.listEmployeeLabel.Text = "Danh Sách Nhân Viên";
+
+            // 
+            // listPanel
+            // 
+
+            this.listPanel.Controls.Add(this.listEmployeeLabel);
+            this.listPanel.Controls.Add(this.dataGridView1);
+            this.listPanel.Location = new System.Drawing.Point(0, 180);
+            this.listPanel.Name = "listPanel";
+            this.listPanel.Size = new System.Drawing.Size(914, 323);
+            this.listPanel.TabIndex = 2;
+
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.Location = new System.Drawing.Point(5, 65);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(903, 255);
+            this.dataGridView1.TabIndex = 0;
+
+            // 
+            // toolStrip
+            // 
+
+            this.listEmployeeLabel.AutoSize = true;
+            this.listEmployeeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listEmployeeLabel.Location = new System.Drawing.Point(362, 25);
+            this.listEmployeeLabel.Name = "listEmployeeLabel";
+            this.listEmployeeLabel.Size = new System.Drawing.Size(190, 23);
+            this.listEmployeeLabel.TabIndex = 1;
+            this.listEmployeeLabel.Text = "Danh Sách Nhân Viên";
+
+            this.toolStrip.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addtoolStripButton,
+            this.addToolStripLabel,
+            this.repairtoolStripButton,
+            this.RepairToolStripLabel,
+            this.erasetoolStripButton,
+            this.eraseToolStripLabel,
+            this.canceltoolStripButton,
+            this.cancelToolStripLabel,
+            this.updatetoolStripButton,
+            this.updatetoolStripLabel,
+            this.printtoolStripButton,
+            this.printtoolStripLabel});
+            this.toolStrip.Location = new System.Drawing.Point(0, 25);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(917, 27);
+            this.toolStrip.TabIndex = 2;
+            this.toolStrip.Text = "toolStrip1";
+            // 
+            // addtoolStripButton
+            // 
+            this.addtoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addtoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addtoolStripButton.Image")));
+            this.addtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addtoolStripButton.Name = "addtoolStripButton";
+            this.addtoolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.addtoolStripButton.Text = "addtoolStripButton";
+            // 
+            // addToolStripLabel
+            // 
+            this.addToolStripLabel.Name = "addToolStripLabel";
+            this.addToolStripLabel.Size = new System.Drawing.Size(42, 24);
+            this.addToolStripLabel.Text = "Thêm";
+            // 
+            // repairtoolStripButton
+            // 
+            this.repairtoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.repairtoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("repairtoolStripButton.Image")));
+            this.repairtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.repairtoolStripButton.Name = "repairtoolStripButton";
+            this.repairtoolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.repairtoolStripButton.Text = "toolStripButton2";
+            // 
+            // RepairToolStripLabel
+            // 
+            this.RepairToolStripLabel.Name = "RepairToolStripLabel";
+            this.RepairToolStripLabel.Size = new System.Drawing.Size(31, 24);
+            this.RepairToolStripLabel.Text = "Sửa";
+            // 
+            // erasetoolStripButton
+            // 
+            this.erasetoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.erasetoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("erasetoolStripButton.Image")));
+            this.erasetoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.erasetoolStripButton.Name = "erasetoolStripButton";
+            this.erasetoolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.erasetoolStripButton.Text = "toolStripButton3";
+            // 
+            // eraseToolStripLabel
+            // 
+            this.eraseToolStripLabel.Name = "eraseToolStripLabel";
+            this.eraseToolStripLabel.Size = new System.Drawing.Size(32, 24);
+            this.eraseToolStripLabel.Text = "Xóa";
+            // 
+            // canceltoolStripButton
+            // 
+            this.canceltoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.canceltoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("canceltoolStripButton.Image")));
+            this.canceltoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.canceltoolStripButton.Name = "canceltoolStripButton";
+            this.canceltoolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.canceltoolStripButton.Text = "toolStripButton4";
+            // 
+            // cancelToolStripLabel
+            // 
+            this.cancelToolStripLabel.Name = "cancelToolStripLabel";
+            this.cancelToolStripLabel.Size = new System.Drawing.Size(33, 24);
+            this.cancelToolStripLabel.Text = "Hủy";
+            // 
+            // updatetoolStripButton
+            // 
+            this.updatetoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.updatetoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("updatetoolStripButton.Image")));
+            this.updatetoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.updatetoolStripButton.Name = "updatetoolStripButton";
+            this.updatetoolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.updatetoolStripButton.Text = "toolStripButton5";
+            // 
+            // updatetoolStripLabel
+            // 
+            this.updatetoolStripLabel.Name = "updatetoolStripLabel";
+            this.updatetoolStripLabel.Size = new System.Drawing.Size(65, 24);
+            this.updatetoolStripLabel.Text = "Cập Nhật";
+            // 
+            // printtoolStripButton
+            // 
+            this.printtoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.printtoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printtoolStripButton.Image")));
+            this.printtoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printtoolStripButton.Name = "printtoolStripButton";
+            this.printtoolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.printtoolStripButton.Text = "toolStripButton6";
+            // 
+            // printtoolStripLabel
+            // 
+            this.printtoolStripLabel.Name = "printtoolStripLabel";
+            this.printtoolStripLabel.Size = new System.Drawing.Size(20, 24);
+            this.printtoolStripLabel.Text = "In";
+            // 
+            // searchButton
+            // 
+            this.searchButton.AutoSize = true;
+            this.searchButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(792, 67);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(95, 30);
+            this.searchButton.TabIndex = 10;
+            this.searchButton.Text = "Tìm";
+            this.searchButton.UseVisualStyleBackColor = true;
+
             // 
             // dataGridView1
             // 
@@ -379,6 +587,7 @@
             this.Controls.Add(this.toolPanel);
             this.Name = "mainForm";
             this.Text = "mainForm";
+
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainForm_FormClosed);
             this.Load += new System.EventHandler(this.mainForm_Load);
@@ -386,6 +595,10 @@
             this.toolPanel.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+
+            this.toolPanel.ResumeLayout(false);
+            this.toolPanel.PerformLayout();
+
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.informationPanel.ResumeLayout(false);
@@ -394,6 +607,8 @@
             this.listPanel.ResumeLayout(false);
             this.listPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -408,8 +623,11 @@
         private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nhânViênToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phòngBanToolStripMenuItem;
         private System.Windows.Forms.Panel informationPanel;
         private System.Windows.Forms.GroupBox searchgroupBox;
         private System.Windows.Forms.TextBox IDtextBox;
@@ -431,5 +649,18 @@
         private System.Windows.Forms.ToolStripButton printtoolStripButton;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.ToolStripButton addToolStripButton;
+        private System.Windows.Forms.ToolStripButton addtoolStripButton;
+        private System.Windows.Forms.ToolStripLabel addToolStripLabel;
+        private System.Windows.Forms.ToolStripButton repairtoolStripButton;
+        private System.Windows.Forms.ToolStripLabel RepairToolStripLabel;
+        private System.Windows.Forms.ToolStripButton erasetoolStripButton;
+        private System.Windows.Forms.ToolStripLabel eraseToolStripLabel;
+        private System.Windows.Forms.ToolStripButton canceltoolStripButton;
+        private System.Windows.Forms.ToolStripLabel cancelToolStripLabel;
+        private System.Windows.Forms.ToolStripButton updatetoolStripButton;
+        private System.Windows.Forms.ToolStripLabel updatetoolStripLabel;
+        private System.Windows.Forms.ToolStripButton printtoolStripButton;
+        private System.Windows.Forms.ToolStripLabel printtoolStripLabel;
+        private System.Windows.Forms.Button searchButton;
     }
 }
