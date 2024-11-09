@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.toolPanel = new System.Windows.Forms.Panel();
+// <<<<<<< Video1
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.repairtoolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -38,6 +39,8 @@
             this.updatetoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printtoolStripButton = new System.Windows.Forms.ToolStripButton();
 
+// =======
+// >>>>>>> Try1
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,9 +51,14 @@
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informationPanel = new System.Windows.Forms.Panel();
+////////////////////////////////////////////////////////////////
             this.searchgroupBox = new System.Windows.Forms.GroupBox();
+// <<<<<<< Video1
+////////////////////////////////////////////////////////////////
             this.searchButton = new System.Windows.Forms.Button();
 
+// =======
+// >>>>>>> Try1
             this.bỉthdaydateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.sexcomboBox = new System.Windows.Forms.ComboBox();
             this.IDtextBox = new System.Windows.Forms.TextBox();
@@ -62,10 +70,13 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.listEmployeeLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-
+// <<<<<<< Video1
+          ////////////////////////////////////////////////////////////////
             this.toolPanel.SuspendLayout();
             this.toolStrip.SuspendLayout();
-
+          ////////////////////////////////////////////////////////////////
+// =======
+// >>>>>>> Try1
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.addtoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.addToolStripLabel = new System.Windows.Forms.ToolStripLabel();
@@ -81,7 +92,10 @@
             this.printtoolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.searchButton = new System.Windows.Forms.Button();
             this.toolPanel.SuspendLayout();
+// <<<<<<< Video1
 
+// =======
+// >>>>>>> Try1
             this.menuStrip1.SuspendLayout();
             this.informationPanel.SuspendLayout();
             this.searchgroupBox.SuspendLayout();
@@ -91,7 +105,8 @@
             this.SuspendLayout();
             // 
             // toolPanel
-
+// <<<<<<< Video1
+          ////////////////////////////////////////////////////////////////
             // 
             this.toolPanel.Controls.Add(this.toolStrip);
             this.toolPanel.Controls.Add(this.menuStrip1);
@@ -165,7 +180,10 @@
             this.printtoolStripButton.Name = "printtoolStripButton";
             this.printtoolStripButton.Size = new System.Drawing.Size(44, 24);
             this.printtoolStripButton.Text = "In";
-            // 
+            //           ////////////////////////////////////////////////////////////////
+// =======
+//             // 
+// >>>>>>> Try1
             this.toolPanel.Controls.Add(this.toolStrip);
             this.toolPanel.Controls.Add(this.menuStrip1);
             this.toolPanel.Location = new System.Drawing.Point(-9, 0);
@@ -295,6 +313,7 @@
             this.searchgroupBox.TabStop = false;
             this.searchgroupBox.Text = "Tìm kiếm";
             // 
+// <<<<<<< Video1
 
             // searchButton
             // 
@@ -322,6 +341,21 @@
             // 
             // sexcomboBox
             // 
+                    ////////////////////////////////////////////////////////////////
+// =======
+//             // bỉthdaydateTimePicker
+//             // 
+//             this.bỉthdaydateTimePicker.CalendarFont = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+//             this.bỉthdaydateTimePicker.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+//             this.bỉthdaydateTimePicker.Location = new System.Drawing.Point(149, 65);
+//             this.bỉthdaydateTimePicker.Name = "bỉthdaydateTimePicker";
+//             this.bỉthdaydateTimePicker.Size = new System.Drawing.Size(221, 25);
+//             this.bỉthdaydateTimePicker.TabIndex = 9;
+//             // 
+//             // sexcomboBox
+//             // 
+                    ////////////////////////////////////////////////////////////////
+// >>>>>>> Try1
             this.sexcomboBox.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sexcomboBox.FormattingEnabled = true;
             this.sexcomboBox.Items.AddRange(new object[] {
@@ -388,7 +422,29 @@
             this.nameLabel.Size = new System.Drawing.Size(93, 22);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Họ và Tên";
+// <<<<<<< Video1
 
+// =======
+//             // 
+//             // listPanel
+//             // 
+//             this.listPanel.Controls.Add(this.listEmployeeLabel);
+//             this.listPanel.Controls.Add(this.dataGridView1);
+//             this.listPanel.Location = new System.Drawing.Point(0, 180);
+//             this.listPanel.Name = "listPanel";
+//             this.listPanel.Size = new System.Drawing.Size(914, 323);
+//             this.listPanel.TabIndex = 2;
+//             // 
+//             // listEmployeeLabel
+//             // 
+//             this.listEmployeeLabel.AutoSize = true;
+//             this.listEmployeeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+//             this.listEmployeeLabel.Location = new System.Drawing.Point(362, 25);
+//             this.listEmployeeLabel.Name = "listEmployeeLabel";
+//             this.listEmployeeLabel.Size = new System.Drawing.Size(190, 23);
+//             this.listEmployeeLabel.TabIndex = 1;
+//             this.listEmployeeLabel.Text = "Danh Sách Nhân Viên";
+// >>>>>>> Try1
             // 
             // listPanel
             // 
@@ -433,7 +489,8 @@
             // 
             // toolStrip
             // 
-
+// <<<<<<< Video1
+          ////////////////////////////////////////////////////////////////
             this.listEmployeeLabel.AutoSize = true;
             this.listEmployeeLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEmployeeLabel.Location = new System.Drawing.Point(362, 25);
@@ -441,7 +498,9 @@
             this.listEmployeeLabel.Size = new System.Drawing.Size(190, 23);
             this.listEmployeeLabel.TabIndex = 1;
             this.listEmployeeLabel.Text = "Danh Sách Nhân Viên";
-
+          ////////////////////////////////////////////////////////////////
+// =======
+// >>>>>>> Try1
             this.toolStrip.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -563,7 +622,8 @@
             this.searchButton.TabIndex = 10;
             this.searchButton.Text = "Tìm";
             this.searchButton.UseVisualStyleBackColor = true;
-
+// <<<<<<< Video1
+          ////////////////////////////////////////////////////////////////
             // 
             // dataGridView1
             // 
@@ -576,6 +636,9 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(903, 255);
             this.dataGridView1.TabIndex = 0;
+                    ////////////////////////////////////////////////////////////////
+// =======
+// >>>>>>> Try1
             // 
             // mainForm
             // 
@@ -587,7 +650,8 @@
             this.Controls.Add(this.toolPanel);
             this.Name = "mainForm";
             this.Text = "mainForm";
-
+// <<<<<<< Video1
+          ////////////////////////////////////////////////////////////////
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainForm_FormClosed);
             this.Load += new System.EventHandler(this.mainForm_Load);
@@ -598,7 +662,11 @@
 
             this.toolPanel.ResumeLayout(false);
             this.toolPanel.PerformLayout();
-
+          ////////////////////////////////////////////////////////////////
+// =======
+            this.toolPanel.ResumeLayout(false);
+            this.toolPanel.PerformLayout();
+// >>>>>>> Try1          ////////////////////////////////////////////////////////////////
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.informationPanel.ResumeLayout(false);

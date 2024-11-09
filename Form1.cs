@@ -37,6 +37,7 @@ namespace QuanLiNhanSu_YT
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+// <<<<<<< Video1
 
             string USERNAME= usertextBox.Text;
             string PASSWORD= passwordTextBox.Text;
@@ -64,6 +65,11 @@ namespace QuanLiNhanSu_YT
             //mainForm.ShowDialog();
             //this.Close();
 
+// =======
+            //mainForm mainForm = new mainForm();
+            //mainForm.ShowDialog();
+            //this.Close();
+// >>>>>>> Try1
         }
 
         private void exitButton_Click(object sender, EventArgs e)
