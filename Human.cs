@@ -7,6 +7,7 @@ namespace Class
 {
     public abstract class Human
     {
+        private string id;
         private string _name;
         private int _age;
         private date _birth;
@@ -18,15 +19,19 @@ namespace Class
         public string Birth { get => _birth.ToString(); set => _birth.String_ToDate(value); }
         public string Sick { get => sick; set => sick = value; }
         public bool Status { get => status; set => status = value; }
-        public Human(string name, int age, string date,string sick="Binh thuong",bool status=true) 
+        public string Id { get => id; set => id = value; }
+
+        public Human(string id,string name, int age, string date,string sick="Binh thuong",bool status=true) 
         { 
+            Id = id;
             Name = name;
             Age = age;
             Birth= date;
         }
         public override string ToString()
         {
-            return  $"Name: {Name}\n" +
+            return  $"ID:{Id}" +
+                    $"Name: {Name}\n" +
                     $"Age: {Age}\n" +
                     $"BirthDay: {Birth.ToString()}" +
                     $"Sick: {Sick}" +

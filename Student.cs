@@ -7,24 +7,23 @@ namespace Class
 {
     public class Student : Human
     {
-        private string _id;
+        private string _mssv;
         private string grade;
         private Decimal? score;
 
-        public string Id { get => _id; set => _id = value; }
         public string Grade { get => grade; set => grade = value; }
         public decimal? Score { get => score; set => score = value; }
-        public Student(string name, int age, string date, string sick, bool status, string id, string grade) :
-            base(name, age, date, sick, status)
+        public Student(string id,string name, int age, string date, string sick, bool status, string mssv, string grade) :
+            base(id,name, age, date, sick, status)
         {
-            Id = id;
+            Mssv = mssv;
             Grade = grade;
         }
 
         public override string ToString()
         {
             return base.ToString() +
-                    $"ID: {Id}" +
+                    $"MSSV: {Mssv}" +
                     $"Grade: {Grade}" +
                     $"Score {display}";
         }
@@ -35,5 +34,7 @@ namespace Class
                 return score.HasValue ? score.Value.ToString() : "Chưa có giá trị";
             }
         }
+
+        public string Mssv { get => _mssv; set => _mssv = value; }
     }
 }
