@@ -84,15 +84,15 @@ namespace QuanLiNhanSu_YT
 
         }
 
-        private void mainForm_Load(object sender, EventArgs e)
-        {
-            addToolStripButton.Enabled=repairtoolStripButton.Enabled = erasetoolStripButton.Enabled = false;
-            Decentralization();
-        }
+        //private void mainForm_Load(object sender, EventArgs e)
+        //{
+        //    addToolStripButton.Enabled=repairtoolStripButton.Enabled = erasetoolStripButton.Enabled = false;
+        //    Decentralization();
+        //}
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addToolStripButton.Enabled = repairtoolStripButton.Enabled = erasetoolStripButton.Enabled = true;
+            //addToolStripButton.Enabled = repairtoolStripButton.Enabled = erasetoolStripButton.Enabled = true;
         }
 
         private void maganeToolStripMenuItem_Click(object sender, EventArgs e)
