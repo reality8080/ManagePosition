@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Class
+namespace QuanLiNhanSu_YT
 {
     public class date
     {
@@ -47,7 +47,11 @@ namespace Class
             }
             return month;
         }
-        public date(int year, int month, int day)
+        public date() 
+        { 
+        
+        }
+        public date(int day, int month, int year)
         {
             Year = year;
             Month = ValidateMonth(month);
