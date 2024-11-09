@@ -24,7 +24,7 @@ namespace QuanLiNhanSu_YT
         {
             if (Const.accountType == false)
             {
-                userToolStripMenuItem.Enabled = departmentToolStripMenuItem.Enabled = employeeToolStripMenuItem.Enabled = false;
+                userTSMI.Enabled = departmentTSMI.Enabled = employeeTSMI.Enabled = false;
             }
         }
 
@@ -102,6 +102,11 @@ namespace QuanLiNhanSu_YT
                 MessageBox.Show("Ban khong co quyen", "Canh Bao");
                 return;
             }
+        }
+
+        private void bỉthdaydateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

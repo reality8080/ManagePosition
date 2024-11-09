@@ -37,19 +37,19 @@
             this.canceltoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.updatetoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printtoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maganeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.departmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSHeThong = new System.Windows.Forms.MenuStrip();
+            this.systemTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.userTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.maganeTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.departmentTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.thốngKêTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.trợGiúpTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.informationPanel = new System.Windows.Forms.Panel();
             this.searchgroupBox = new System.Windows.Forms.GroupBox();
             this.searchButton = new System.Windows.Forms.Button();
-            this.bỉthdaydateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.birthdaydateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.sexcomboBox = new System.Windows.Forms.ComboBox();
             this.IDtextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolPanel.SuspendLayout();
             this.toolStrip.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.mSHeThong.SuspendLayout();
             this.informationPanel.SuspendLayout();
             this.searchgroupBox.SuspendLayout();
             this.listPanel.SuspendLayout();
@@ -72,7 +72,7 @@
             // toolPanel
             // 
             this.toolPanel.Controls.Add(this.toolStrip);
-            this.toolPanel.Controls.Add(this.menuStrip1);
+            this.toolPanel.Controls.Add(this.mSHeThong);
             this.toolPanel.Location = new System.Drawing.Point(-10, 0);
             this.toolPanel.Name = "toolPanel";
             this.toolPanel.Size = new System.Drawing.Size(917, 56);
@@ -144,83 +144,83 @@
             this.printtoolStripButton.Size = new System.Drawing.Size(44, 24);
             this.printtoolStripButton.Text = "In";
             // 
-            // menuStrip1
+            // mSHeThong
             // 
-            this.menuStrip1.AutoSize = false;
-            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.systemToolStripMenuItem,
-            this.maganeToolStripMenuItem,
-            this.thốngKêToolStripMenuItem,
-            this.trợGiúpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(917, 25);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.mSHeThong.AutoSize = false;
+            this.mSHeThong.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.mSHeThong.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mSHeThong.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.systemTSMI,
+            this.maganeTSMI,
+            this.thốngKêTSMI,
+            this.trợGiúpTSMI});
+            this.mSHeThong.Location = new System.Drawing.Point(0, 0);
+            this.mSHeThong.Name = "mSHeThong";
+            this.mSHeThong.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.mSHeThong.Size = new System.Drawing.Size(917, 25);
+            this.mSHeThong.TabIndex = 0;
+            this.mSHeThong.Text = "Hệ Thống";
             // 
-            // systemToolStripMenuItem
+            // systemTSMI
             // 
-            this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userToolStripMenuItem,
-            this.đăngXuấtToolStripMenuItem});
-            this.systemToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(81, 21);
-            this.systemToolStripMenuItem.Text = "Hệ Thống";
+            this.systemTSMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userTSMI,
+            this.logoutTSMI});
+            this.systemTSMI.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.systemTSMI.Name = "systemTSMI";
+            this.systemTSMI.Size = new System.Drawing.Size(81, 21);
+            this.systemTSMI.Text = "Hệ Thống";
             // 
-            // userToolStripMenuItem
+            // userTSMI
             // 
-            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.userToolStripMenuItem.Text = "Quản lí tài khoản";
+            this.userTSMI.Name = "userTSMI";
+            this.userTSMI.Size = new System.Drawing.Size(224, 26);
+            this.userTSMI.Text = "Quản lí tài khoản";
             // 
-            // đăngXuấtToolStripMenuItem
+            // logoutTSMI
             // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
+            this.logoutTSMI.Name = "logoutTSMI";
+            this.logoutTSMI.Size = new System.Drawing.Size(224, 26);
+            this.logoutTSMI.Text = "Đăng xuất";
+            this.logoutTSMI.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
-            // maganeToolStripMenuItem
+            // maganeTSMI
             // 
-            this.maganeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.employeeToolStripMenuItem,
-            this.departmentToolStripMenuItem});
-            this.maganeToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maganeToolStripMenuItem.Name = "maganeToolStripMenuItem";
-            this.maganeToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
-            this.maganeToolStripMenuItem.Text = "Quản lí";
-            this.maganeToolStripMenuItem.Click += new System.EventHandler(this.maganeToolStripMenuItem_Click);
+            this.maganeTSMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.employeeTSMI,
+            this.departmentTSMI});
+            this.maganeTSMI.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maganeTSMI.Name = "maganeTSMI";
+            this.maganeTSMI.Size = new System.Drawing.Size(64, 21);
+            this.maganeTSMI.Text = "Quản lí";
+            this.maganeTSMI.Click += new System.EventHandler(this.maganeToolStripMenuItem_Click);
             // 
-            // employeeToolStripMenuItem
+            // employeeTSMI
             // 
-            this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.employeeToolStripMenuItem.Text = "Nhân viên";
-            this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
+            this.employeeTSMI.Name = "employeeTSMI";
+            this.employeeTSMI.Size = new System.Drawing.Size(224, 26);
+            this.employeeTSMI.Text = "Nhân viên";
+            this.employeeTSMI.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
-            // departmentToolStripMenuItem
+            // departmentTSMI
             // 
-            this.departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
-            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.departmentToolStripMenuItem.Text = "Phòng ban";
+            this.departmentTSMI.Name = "departmentTSMI";
+            this.departmentTSMI.Size = new System.Drawing.Size(224, 26);
+            this.departmentTSMI.Text = "Phòng ban";
             // 
-            // thốngKêToolStripMenuItem
+            // thốngKêTSMI
             // 
-            this.thốngKêToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(77, 21);
-            this.thốngKêToolStripMenuItem.Text = "Thống kê";
+            this.thốngKêTSMI.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thốngKêTSMI.Name = "thốngKêTSMI";
+            this.thốngKêTSMI.Size = new System.Drawing.Size(77, 21);
+            this.thốngKêTSMI.Text = "Thống kê";
             // 
-            // trợGiúpToolStripMenuItem
+            // trợGiúpTSMI
             // 
-            this.trợGiúpToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(71, 21);
-            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            this.trợGiúpTSMI.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trợGiúpTSMI.Name = "trợGiúpTSMI";
+            this.trợGiúpTSMI.Size = new System.Drawing.Size(71, 21);
+            this.trợGiúpTSMI.Text = "Trợ giúp";
             // 
             // informationPanel
             // 
@@ -233,7 +233,7 @@
             // searchgroupBox
             // 
             this.searchgroupBox.Controls.Add(this.searchButton);
-            this.searchgroupBox.Controls.Add(this.bỉthdaydateTimePicker);
+            this.searchgroupBox.Controls.Add(this.birthdaydateTimePicker);
             this.searchgroupBox.Controls.Add(this.sexcomboBox);
             this.searchgroupBox.Controls.Add(this.IDtextBox);
             this.searchgroupBox.Controls.Add(this.label2);
@@ -260,14 +260,15 @@
             this.searchButton.Text = "Tìm";
             this.searchButton.UseVisualStyleBackColor = true;
             // 
-            // bỉthdaydateTimePicker
+            // birthdaydateTimePicker
             // 
-            this.bỉthdaydateTimePicker.CalendarFont = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bỉthdaydateTimePicker.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bỉthdaydateTimePicker.Location = new System.Drawing.Point(149, 65);
-            this.bỉthdaydateTimePicker.Name = "bỉthdaydateTimePicker";
-            this.bỉthdaydateTimePicker.Size = new System.Drawing.Size(221, 25);
-            this.bỉthdaydateTimePicker.TabIndex = 9;
+            this.birthdaydateTimePicker.CalendarFont = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthdaydateTimePicker.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthdaydateTimePicker.Location = new System.Drawing.Point(149, 65);
+            this.birthdaydateTimePicker.Name = "birthdaydateTimePicker";
+            this.birthdaydateTimePicker.Size = new System.Drawing.Size(221, 25);
+            this.birthdaydateTimePicker.TabIndex = 9;
+            this.birthdaydateTimePicker.ValueChanged += new System.EventHandler(this.bỉthdaydateTimePicker_ValueChanged);
             // 
             // sexcomboBox
             // 
@@ -386,8 +387,8 @@
             this.toolPanel.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.mSHeThong.ResumeLayout(false);
+            this.mSHeThong.PerformLayout();
             this.informationPanel.ResumeLayout(false);
             this.searchgroupBox.ResumeLayout(false);
             this.searchgroupBox.PerformLayout();
@@ -401,15 +402,15 @@
         #endregion
 
         private System.Windows.Forms.Panel toolPanel;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem systemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem maganeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem departmentToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip mSHeThong;
+        private System.Windows.Forms.ToolStripMenuItem systemTSMI;
+        private System.Windows.Forms.ToolStripMenuItem maganeTSMI;
+        private System.Windows.Forms.ToolStripMenuItem thốngKêTSMI;
+        private System.Windows.Forms.ToolStripMenuItem trợGiúpTSMI;
+        private System.Windows.Forms.ToolStripMenuItem userTSMI;
+        private System.Windows.Forms.ToolStripMenuItem logoutTSMI;
+        private System.Windows.Forms.ToolStripMenuItem employeeTSMI;
+        private System.Windows.Forms.ToolStripMenuItem departmentTSMI;
         private System.Windows.Forms.Panel informationPanel;
         private System.Windows.Forms.GroupBox searchgroupBox;
         private System.Windows.Forms.TextBox IDtextBox;
@@ -422,7 +423,7 @@
         private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label listEmployeeLabel;
-        private System.Windows.Forms.DateTimePicker bỉthdaydateTimePicker;
+        private System.Windows.Forms.DateTimePicker birthdaydateTimePicker;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton repairtoolStripButton;
         private System.Windows.Forms.ToolStripButton erasetoolStripButton;
