@@ -125,15 +125,16 @@
             // tsmiEmployee
             // 
             this.tsmiEmployee.Name = "tsmiEmployee";
-            this.tsmiEmployee.Size = new System.Drawing.Size(201, 34);
+            this.tsmiEmployee.Size = new System.Drawing.Size(270, 34);
             this.tsmiEmployee.Text = "Nhân viên";
             this.tsmiEmployee.Click += new System.EventHandler(this.tsmiEmployee_Click);
             // 
             // tsmiDepartment
             // 
             this.tsmiDepartment.Name = "tsmiDepartment";
-            this.tsmiDepartment.Size = new System.Drawing.Size(201, 34);
+            this.tsmiDepartment.Size = new System.Drawing.Size(270, 34);
             this.tsmiDepartment.Text = "Phòng ban";
+            this.tsmiDepartment.Click += new System.EventHandler(this.tsmiDepartment_Click);
             // 
             // thốngToolStripMenuItem
             // 

@@ -72,6 +72,11 @@ namespace QuanLiNhanSu_YT
             FormUser f = new FormUser();
             f.ShowDialog();
         }
+        private void tsmiDepartment_Click(object sender, EventArgs e)
+        {
+            FormDepartment f = new FormDepartment();
+            f.ShowDialog();
+        }
         #endregion
 
         private void toolStripButton1_Click(object sender, EventArgs e)
