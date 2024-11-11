@@ -32,6 +32,8 @@ namespace QuanLiNhanSu_YT
             }
         }
         #endregion
+
+
         #region Event
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -65,6 +67,11 @@ namespace QuanLiNhanSu_YT
             if(!Const.AccountType)
                 MessageBox.Show("Bạn không phải là admin", "Cảnh báo");
         }
+        private void tsmiUser_Click(object sender, EventArgs e)
+        {
+            FormUser f = new FormUser();
+            f.ShowDialog();
+        }
         #endregion
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -76,5 +83,7 @@ namespace QuanLiNhanSu_YT
         {
 
         }
+
+        
     }
 }
