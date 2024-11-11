@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace QuanLiNhanSu_YT
 {
-    internal class Department
+    public class Department
     {
+        private string name;
+        public string Name { get => name; set => name = value; }
+        public Department(string name)
+        {
+            this.Name = name;
+        }
     }
 }
