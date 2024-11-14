@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Const.cs" />
     <Compile Include="Department.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +79,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormShowInfoEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowInfoEmployee.Designer.cs">
+      <DependentUpon>FormShowInfoEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +92,7 @@
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
     <Compile Include="ListDepartment.cs" />
+    <Compile Include="ListEmployee.cs" />
     <Compile Include="ListUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +112,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormShowInfoEmployee.resx">
+      <DependentUpon>FormShowInfoEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +126,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -128,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,6 +12,7 @@ namespace QuanLiNhanSu_YT
 {
     public partial class FormMain : Form
     {
+        int index = -1;
         public bool isExit = true;
         public event EventHandler Logout;
         public FormMain()
@@ -19,16 +20,23 @@ namespace QuanLiNhanSu_YT
             InitializeComponent();
         }
 
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
         #region Method
         void Decentralization()
         {
             if(Const.AccountType == false)
             {
                 tsmiDepartment.Enabled = tsmiEmployee.Enabled = tsmiUser.Enabled = false;
+            }
+        }
+
+        void LoadListEmployee()
+        {
+            dtgvEmployee.Rows.Clear();
+
+            foreach (var item in ListEmployee.Instance.ListEmploy)
+            {
+                dtgvEmployee.Rows.Add(item.EmployeeCode, item.Name, item.BirthDay.ToShortDateString(), item.Sex, item.Department, item.Position, item.Contract);
             }
         }
         #endregion
@@ -51,8 +59,10 @@ namespace QuanLiNhanSu_YT
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            btnAddNew.Enabled = btnDelete.Enabled = btnEdit.Enabled = false;
+            btnShow.Enabled = btnAddNew.Enabled = btnDelete.Enabled = btnEdit.Enabled = false;
             Decentralization();
+
+            LoadListEmployee();
         }
         private void đăngToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -60,7 +70,7 @@ namespace QuanLiNhanSu_YT
         }
         private void tsmiEmployee_Click(object sender, EventArgs e)
         {
-            btnAddNew.Enabled = btnDelete.Enabled = btnEdit.Enabled = true;
+            btnShow.Enabled = btnAddNew.Enabled = btnDelete.Enabled = btnEdit.Enabled = true;
         }
         private void quảnLíToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -77,6 +87,44 @@ namespace QuanLiNhanSu_YT
             FormDepartment f = new FormDepartment();
             f.ShowDialog();
         }
+        private void dtgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+
+            if(index < 0 || index >= ListEmployee.Instance.ListEmploy.Count)
+                return;
+
+            Const.NewEmploy = new Employee();
+            Const.NewEmploy.Name = ListEmployee.Instance.ListEmploy[index].Name;
+            Const.NewEmploy.BirthDay = ListEmployee.Instance.ListEmploy[index].BirthDay;
+            Const.NewEmploy.Sex = ListEmployee.Instance.ListEmploy[index].Sex;
+            
+            Const.NewEmploy.EmployeeCode = ListEmployee.Instance.ListEmploy[index].EmployeeCode;
+            Const.NewEmploy.Department = ListEmployee.Instance.ListEmploy[index].Department;
+            Const.NewEmploy.Position = ListEmployee.Instance.ListEmploy[index].Position;
+            Const.NewEmploy.Contract = ListEmployee.Instance.ListEmploy[index].Contract;
+        }
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (index < 0 || index >= ListEmployee.Instance.ListEmploy.Count)
+                return;
+            FormShowInfoEmployee f = new FormShowInfoEmployee();
+            f.ShowDialog();
+        }
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+            Const.NewEmploy = null;
+            FormAddNewEmployee f = new FormAddNewEmployee();
+            f.FormClosed += F_FormClosed;
+            f.ShowDialog();
+        }
+
+        private void F_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ListEmployee.Instance.ListEmploy.Add(Const.NewEmploy);
+            LoadListEmployee();
+            
+        }
         #endregion
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -89,6 +137,51 @@ namespace QuanLiNhanSu_YT
 
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (index < 0 || index >= ListEmployee.Instance.ListEmploy.Count)
+            {
+                MessageBox.Show("Hay chon 1 ban ghi");
+                return;
+            }
+            FormEditEmployee f = new FormEditEmployee();
+            f.FormClosed += F_FormClosed1; 
+            f.ShowDialog();
+        }
+        private void F_FormClosed1(object sender, FormClosedEventArgs e)
+        {
+            ListEmployee.Instance.ListEmploy[index].Name = Const.NewEmploy.Name;
+            ListEmployee.Instance.ListEmploy[index].BirthDay = Const.NewEmploy.BirthDay;
+            ListEmployee.Instance.ListEmploy[index].Sex = Const.NewEmploy.Sex;
+            ListEmployee.Instance.ListEmploy[index].EmployeeCode = Const.NewEmploy.EmployeeCode;
+            ListEmployee.Instance.ListEmploy[index].Department = Const.NewEmploy.Department;
+            ListEmployee.Instance.ListEmploy[index].Position = Const.NewEmploy.Position;
+            ListEmployee.Instance.ListEmploy[index].Contract = Const.NewEmploy.Contract;
+
+            LoadListEmployee();
+
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (index < 0 || index >= ListEmployee.Instance.ListEmploy.Count)
+            {
+                MessageBox.Show("Hay chon 1 ban ghi");
+                return;
+            }
+            ListEmployee.Instance.ListEmploy.RemoveAt(index);
+            LoadListEmployee() ;
+        }
     }
 }

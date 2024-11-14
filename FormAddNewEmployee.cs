@@ -21,5 +21,26 @@ namespace QuanLiNhanSu_YT
         {
 
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string name = txbName.Text;
+            DateTime birthDay = dtpkBirthDay.Value;
+            string sex = cboSex.Text;
+            int employeeID = Convert.ToInt32(txbEmployeeID.Text);
+            string department = cboDepartment.Text;
+            string position = txbPosition.Text;
+            string contract = cboContract.Text;
+
+            Const.NewEmploy = new Employee(name, birthDay, sex, employeeID, department, position, contract);
+            this.Close();
+        }
+
+        private void FormAddNewEmployee_Load(object sender, EventArgs e)
+        {
+            cboSex.DataSource = Const.listSex;
+            cboDepartment.DataSource = Const.ListDepartment;
+            cboContract.DataSource = Const.listContract;
+        }
     }
 }

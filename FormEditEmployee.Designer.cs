@@ -31,7 +31,6 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -42,11 +41,9 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txbPosition = new System.Windows.Forms.TextBox();
+            this.txbEmployeeID = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -59,8 +56,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txbName = new System.Windows.Forms.TextBox();
+            this.dtpkBirthDay = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,8 +67,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
+            this.cboSex = new System.Windows.Forms.ComboBox();
+            this.cboDepartment = new System.Windows.Forms.ComboBox();
+            this.cboContract = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -96,13 +96,6 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(240, 26);
             this.textBox5.TabIndex = 13;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(595, 38);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(240, 26);
-            this.textBox4.TabIndex = 12;
             // 
             // textBox3
             // 
@@ -201,20 +194,6 @@
             this.label21.TabIndex = 21;
             this.label21.Text = "(*)";
             // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(595, 119);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(240, 26);
-            this.textBox12.TabIndex = 20;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(595, 55);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(240, 26);
-            this.textBox11.TabIndex = 19;
-            // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(159, 177);
@@ -222,19 +201,19 @@
             this.textBox10.Size = new System.Drawing.Size(283, 26);
             this.textBox10.TabIndex = 18;
             // 
-            // textBox9
+            // txbPosition
             // 
-            this.textBox9.Location = new System.Drawing.Point(159, 116);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(283, 26);
-            this.textBox9.TabIndex = 17;
+            this.txbPosition.Location = new System.Drawing.Point(159, 116);
+            this.txbPosition.Name = "txbPosition";
+            this.txbPosition.Size = new System.Drawing.Size(283, 26);
+            this.txbPosition.TabIndex = 17;
             // 
-            // textBox8
+            // txbEmployeeID
             // 
-            this.textBox8.Location = new System.Drawing.Point(159, 55);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(283, 26);
-            this.textBox8.TabIndex = 16;
+            this.txbEmployeeID.Location = new System.Drawing.Point(159, 55);
+            this.txbEmployeeID.Name = "txbEmployeeID";
+            this.txbEmployeeID.Size = new System.Drawing.Size(283, 26);
+            this.txbEmployeeID.TabIndex = 16;
             // 
             // label18
             // 
@@ -262,6 +241,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cboContract);
+            this.groupBox2.Controls.Add(this.cboDepartment);
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.label25);
             this.groupBox2.Controls.Add(this.label24);
@@ -269,11 +250,9 @@
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.textBox13);
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.textBox11);
             this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.textBox8);
+            this.groupBox2.Controls.Add(this.txbPosition);
+            this.groupBox2.Controls.Add(this.txbEmployeeID);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
@@ -353,6 +332,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboSex);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label18);
@@ -360,11 +340,10 @@
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.txbName);
+            this.groupBox1.Controls.Add(this.dtpkBirthDay);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -380,19 +359,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
             // 
-            // textBox1
+            // txbName
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(314, 26);
-            this.textBox1.TabIndex = 9;
+            this.txbName.Location = new System.Drawing.Point(128, 38);
+            this.txbName.Name = "txbName";
+            this.txbName.Size = new System.Drawing.Size(314, 26);
+            this.txbName.TabIndex = 9;
             // 
-            // dateTimePicker1
+            // dtpkBirthDay
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(128, 92);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(314, 26);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dtpkBirthDay.Location = new System.Drawing.Point(128, 92);
+            this.dtpkBirthDay.Name = "dtpkBirthDay";
+            this.dtpkBirthDay.Size = new System.Drawing.Size(314, 26);
+            this.dtpkBirthDay.TabIndex = 8;
             // 
             // label8
             // 
@@ -475,14 +454,15 @@
             this.button2.Text = "Hủy";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnEdit
             // 
-            this.button1.Location = new System.Drawing.Point(673, 600);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 57);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Lưu";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(673, 600);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(166, 57);
+            this.btnEdit.TabIndex = 20;
+            this.btnEdit.Text = "Lưu";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label15
             // 
@@ -493,6 +473,30 @@
             this.label15.TabIndex = 19;
             this.label15.Text = ": là mục bắt buộc";
             // 
+            // cboSex
+            // 
+            this.cboSex.FormattingEnabled = true;
+            this.cboSex.Location = new System.Drawing.Point(595, 35);
+            this.cboSex.Name = "cboSex";
+            this.cboSex.Size = new System.Drawing.Size(134, 28);
+            this.cboSex.TabIndex = 27;
+            // 
+            // cboDepartment
+            // 
+            this.cboDepartment.FormattingEnabled = true;
+            this.cboDepartment.Location = new System.Drawing.Point(595, 55);
+            this.cboDepartment.Name = "cboDepartment";
+            this.cboDepartment.Size = new System.Drawing.Size(240, 28);
+            this.cboDepartment.TabIndex = 28;
+            // 
+            // cboContract
+            // 
+            this.cboContract.FormattingEnabled = true;
+            this.cboContract.Location = new System.Drawing.Point(595, 116);
+            this.cboContract.Name = "cboContract";
+            this.cboContract.Size = new System.Drawing.Size(240, 28);
+            this.cboContract.TabIndex = 29;
+            // 
             // FormEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -502,10 +506,11 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label15);
             this.Name = "FormEditEmployee";
             this.Text = "FormEditEmployee";
+            this.Load += new System.EventHandler(this.FormEditEmployee_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -520,7 +525,6 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
@@ -531,11 +535,9 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txbPosition;
+        private System.Windows.Forms.TextBox txbEmployeeID;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox2;
@@ -548,8 +550,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txbName;
+        private System.Windows.Forms.DateTimePicker dtpkBirthDay;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -559,7 +561,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cboContract;
+        private System.Windows.Forms.ComboBox cboDepartment;
+        private System.Windows.Forms.ComboBox cboSex;
     }
 }
