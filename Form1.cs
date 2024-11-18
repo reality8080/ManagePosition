@@ -84,14 +84,19 @@ namespace QuanLiNhanSu_YT
 
         private void passwordCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (passwordCheckbox.Checked)
+            if (ckbShowPassWord.Checked)
             {
-                passwordTextBox.UseSystemPasswordChar = false;
+                txbPassWord.UseSystemPasswordChar = false;
             }
-            if (!passwordCheckbox.Checked)
+            if (!ckbShowPassWord.Checked)
             {
-                passwordTextBox.UseSystemPasswordChar = true;
+                txbPassWord.UseSystemPasswordChar = true;
             }
+        }
+
+        private void txbPassWord_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         //private void Form1_Load(object sender, EventArgs e)
