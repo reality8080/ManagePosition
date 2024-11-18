@@ -2,35 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace QuanLiNhanSu_YT
 {
     public class ListUser
     {
-        private static ListUser instance;
-        public static ListUser Instance
-        {
-            get 
+        private static ListUser instance; 
+        private List<User> listAccountUser;
+        public List<User> ListAccountUser { get => listAccountUser; set => listAccountUser = value; }
+        public static ListUser Instance {
+            get
             { if(instance == null)
-                {
+            {
+                if(instance == null)
                     instance = new ListUser();
                 }
-                return instance; 
+                return instance;
             }
-            set { instance = value; }
+            set => instance = value;
         }
         private List<User> listAccountUser;
 
-        private ListUser()
+        public ListUser()
         {
             listAccountUser = new List<User>();
-            listAccountUser.Add(new User("Nguyen Tran Thien Phu","231102",true));
-
-        }
-
-        public List<User> ListAccountUser
-        {
-            get=>listAccountUser; set => listAccountUser = value;
+            listAccountUser.Add(new User("QuangDuyReal", "Duy161005.", true));
+            listAccountUser.Add(new User("fansjaki@gmail.com", "3380", false));
         }
     }
 }

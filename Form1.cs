@@ -16,20 +16,18 @@ namespace QuanLiNhanSu_YT
         {
             InitializeComponent();
         }
-
-        bool CheckLogin(string userName, string passWord)
+        bool checkLogin(string userName, string passWord)
         {
-            for(int i = 0;i<ListUser.Instance.ListAccountUser.Count; i++)
+            for(int i = 0; i < ListUser.Instance.ListAccountUser.Count; i++)
             {
-                if (userName == ListUser.Instance.ListAccountUser[i].UserName&& passWord == ListUser.Instance.ListAccountUser[i].PassWord)
+                if (userName == ListUser.Instance.ListAccountUser[i].UserName && passWord == ListUser.Instance.ListAccountUser[i].PassWord)
                 {
-                    Const.accountType = ListUser.Instance.ListAccountUser[i].AccountType;
+                    Const.AccountType = ListUser.Instance.ListAccountUser[i].AccountType;    
                     return true;
                 }
             }
             return false;
         }
-
         private void button1_MouseEnter(object sender, EventArgs e)
         {
 
@@ -37,27 +35,27 @@ namespace QuanLiNhanSu_YT
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string USERNAME= usertextBox.Text;
-            string PASSWORD= passwordTextBox.Text;
-            if (CheckLogin(USERNAME,PASSWORD))
+            string userName = txbUserName.Text;
+            string passWord = txbPassWord.Text;
+            if (checkLogin(userName, passWord))
             {
-                mainForm f=new mainForm();
+                FormMain f = new FormMain();
                 f.Show();
                 this.Hide();
                 f.Logout += F_Logout;
             }
             else
             {
-                MessageBox.Show("Ten tai khoan hoac mat khau khong dung", "Loi", MessageBoxButtons.OK);
-                usertextBox.Focus();
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu", "Lỗi", MessageBoxButtons.OK);
+                txbUserName.Focus();
                 return;
             }
         }
 
-        private void F_Logout(object sender,EventArgs e)
+        private void F_Logout(object sender, EventArgs e)
         {
-            (sender as mainForm).isExit=false;
-            (sender as mainForm).Close();
+            (sender as FormMain).isExit = false;
+            (sender as FormMain).Close();
             this.Show();
         }
 
@@ -66,14 +64,22 @@ namespace QuanLiNhanSu_YT
             Application.Exit();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (ckbShowPassWord.Checked)
+                txbPassWord.UseSystemPasswordChar = false;
+            if (!ckbShowPassWord.Checked)
+                txbPassWord.UseSystemPasswordChar = true;
         }
 
         private void passwordCheckbox_CheckedChanged(object sender, EventArgs e)
