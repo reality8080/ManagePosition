@@ -50,14 +50,14 @@
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbStudentID = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label5 = new System.Windows.Forms.Label();
@@ -95,6 +95,7 @@
             this.menuStrip2.Size = new System.Drawing.Size(1138, 36);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
+            this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
             // 
             // hệThốngToolStripMenuItem
             // 
@@ -133,7 +134,7 @@
             // 
             this.tsmiEmployee.Name = "tsmiEmployee";
             this.tsmiEmployee.Size = new System.Drawing.Size(201, 34);
-            this.tsmiEmployee.Text = "Nhân viên";
+            this.tsmiEmployee.Text = "Học sinh";
             this.tsmiEmployee.Click += new System.EventHandler(this.tsmiEmployee_Click);
             // 
             // tsmiDepartment
@@ -237,14 +238,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txbStudentID);
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txbName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 66);
             this.groupBox1.Name = "groupBox1";
@@ -254,12 +255,12 @@
             this.groupBox1.Text = "Tìm kiếm";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox2
+            // txbStudentID
             // 
-            this.textBox2.Location = new System.Drawing.Point(539, 103);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 26);
-            this.textBox2.TabIndex = 10;
+            this.txbStudentID.Location = new System.Drawing.Point(539, 103);
+            this.txbStudentID.Name = "txbStudentID";
+            this.txbStudentID.Size = new System.Drawing.Size(177, 26);
+            this.txbStudentID.TabIndex = 10;
             // 
             // comboBox2
             // 
@@ -284,15 +285,16 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Tìm kiếm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(423, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 20);
+            this.label4.Size = new System.Drawing.Size(117, 20);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Mã nhân viên";
+            this.label4.Text = "Mã số sinh viên";
             // 
             // label3
             // 
@@ -312,12 +314,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Ngày sinh";
             // 
-            // textBox1
+            // txbName
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 26);
-            this.textBox1.TabIndex = 1;
+            this.txbName.Location = new System.Drawing.Point(127, 36);
+            this.txbName.Name = "txbName";
+            this.txbName.Size = new System.Drawing.Size(237, 26);
+            this.txbName.TabIndex = 1;
             // 
             // label1
             // 
@@ -340,9 +342,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(394, 226);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(412, 37);
+            this.label5.Size = new System.Drawing.Size(395, 37);
             this.label5.TabIndex = 5;
-            this.label5.Text = "DANH SÁCH NHÂN VIÊN";
+            this.label5.Text = "DANH SÁCH SINH VIÊN";
             // 
             // dtgvEmployee
             // 
@@ -367,7 +369,7 @@
             // colEmployeeCode
             // 
             this.colEmployeeCode.DataPropertyName = "EmployeeCode";
-            this.colEmployeeCode.HeaderText = "Ma nhan vien";
+            this.colEmployeeCode.HeaderText = "Mã số sinh viên";
             this.colEmployeeCode.MinimumWidth = 8;
             this.colEmployeeCode.Name = "colEmployeeCode";
             this.colEmployeeCode.Width = 150;
@@ -375,7 +377,7 @@
             // colName
             // 
             this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "Ho va ten";
+            this.colName.HeaderText = "Họ và tên";
             this.colName.MinimumWidth = 8;
             this.colName.Name = "colName";
             this.colName.Width = 150;
@@ -383,7 +385,7 @@
             // colBirthDay
             // 
             this.colBirthDay.DataPropertyName = "BirthDay";
-            this.colBirthDay.HeaderText = "Ngay sinh";
+            this.colBirthDay.HeaderText = "Ngày sinh";
             this.colBirthDay.MinimumWidth = 8;
             this.colBirthDay.Name = "colBirthDay";
             this.colBirthDay.Width = 150;
@@ -391,7 +393,7 @@
             // colSex
             // 
             this.colSex.DataPropertyName = "Sex";
-            this.colSex.HeaderText = "Gioi tinh";
+            this.colSex.HeaderText = "Giới tính";
             this.colSex.MinimumWidth = 8;
             this.colSex.Name = "colSex";
             this.colSex.Width = 150;
@@ -399,7 +401,7 @@
             // colDepartment
             // 
             this.colDepartment.DataPropertyName = "Department";
-            this.colDepartment.HeaderText = "Phong ban";
+            this.colDepartment.HeaderText = "Lớp";
             this.colDepartment.MinimumWidth = 8;
             this.colDepartment.Name = "colDepartment";
             this.colDepartment.Width = 150;
@@ -407,7 +409,7 @@
             // colPosition
             // 
             this.colPosition.DataPropertyName = "Position";
-            this.colPosition.HeaderText = "Chuc vu";
+            this.colPosition.HeaderText = "Chức vụ";
             this.colPosition.MinimumWidth = 8;
             this.colPosition.Name = "colPosition";
             this.colPosition.Width = 150;
@@ -415,7 +417,7 @@
             // colContract
             // 
             this.colContract.DataPropertyName = "Contract";
-            this.colContract.HeaderText = "Trang thai";
+            this.colContract.HeaderText = "Trạng thái";
             this.colContract.MinimumWidth = 8;
             this.colContract.Name = "colContract";
             this.colContract.Width = 150;
@@ -467,12 +469,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dtgvEmployee;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbStudentID;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ToolStripButton btnAddNew;

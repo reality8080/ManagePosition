@@ -42,5 +42,10 @@ namespace QuanLiNhanSu_YT
             cboDepartment.DataSource = Const.ListDepartment;
             cboContract.DataSource = Const.listContract;
         }
+
+        private void cboSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

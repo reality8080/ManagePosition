@@ -51,5 +51,15 @@ namespace QuanLiNhanSu_YT
             Const.NewEmploy = new Employee(name, birthDay, sex, employeeID, department, position, contract);
             this.Close();
         }
+
+        private void cboSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

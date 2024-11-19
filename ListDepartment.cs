@@ -25,11 +25,11 @@ namespace QuanLiNhanSu_YT
         public ListDepartment()
         {
             listDepartmen = new List<Department>();
-            listDepartmen.Add(new Department("Phong nhan su"));
-            listDepartmen.Add(new Department("Phong IT"));
-            listDepartmen.Add(new Department("Phong ke toan"));
-            listDepartmen.Add(new Department("Phong van tai"));
-            listDepartmen.Add(new Department("Phong Marketing"));
+            listDepartmen.Add(new Department("IT"));
+            listDepartmen.Add(new Department("Kinh tế"));
+            listDepartmen.Add(new Department("Kỹ thuật"));
+            listDepartmen.Add(new Department("Luật"));
+            listDepartmen.Add(new Department("Điện - điện tử"));
         }
     }
 }

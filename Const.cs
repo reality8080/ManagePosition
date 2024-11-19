@@ -10,9 +10,9 @@ namespace QuanLiNhanSu_YT
     {
         public static Employee NewEmploy = null;
         public static bool AccountType;
-        public static List<string> ListDepartment = new List<string>() {"Phong nhan su", "Phong IT", "Phong ke toan", "Phong van tai", "Phong Marketing" };
+        public static List<string> ListDepartment = new List<string>() {"Luật", "IT", "Kinh tế", "Kỹ thuật", "Điện - điện tử" };
 
-        public static List<string> listSex = new List<string>() { "nam", "nu", "khong xac dinh" };
-        public static List<string> listContract = new List<string>() { "dang cong tac", "da nghi" }; 
+        public static List<string> listSex = new List<string>() { "Nam", "Nữ", "Không xác định"};
+        public static List<string> listContract = new List<string>() { "Đang học", "Bảo lưu", "Thôi học" }; 
     }
 }
