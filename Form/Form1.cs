@@ -18,11 +18,11 @@ namespace QuanLiNhanSu_YT
         }
         bool checkLogin(string userName, string passWord)
         {
-            for(int i = 0; i < ListUser.Instance.ListAccountUser.Count; i++)
+            for(int i = 0; i < ListUser.Instance.ListUsers.Count; i++)
             {
-                if (userName == ListUser.Instance.ListAccountUser[i].UserName && passWord == ListUser.Instance.ListAccountUser[i].PassWord)
+                if (userName == ListUser.Instance.ListUsers[i].UserName && passWord == ListUser.Instance.ListUsers[i].UserName)
                 {
-                    Const.AccountType = ListUser.Instance.ListAccountUser[i].AccountType;    
+                    Const.AccountType = ListUser.Instance.ListUsers[i].AccountType;    
                     return true;
                 }
             }
