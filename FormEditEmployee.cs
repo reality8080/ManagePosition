@@ -51,5 +51,10 @@ namespace QuanLiNhanSu_YT
             Const.NewEmploy = new Employee(name, birthDay, sex, employeeID, department, position, contract);
             this.Close();
         }
+
+        private void txbName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

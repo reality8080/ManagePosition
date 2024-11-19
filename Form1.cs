@@ -81,5 +81,10 @@ namespace QuanLiNhanSu_YT
             if (!ckbShowPassWord.Checked)
                 txbPassWord.UseSystemPasswordChar = true;
         }
+
+        private void txbPassWord_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
