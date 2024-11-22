@@ -10,13 +10,13 @@ namespace QuanLiNhanSu_YT
     {
         private string userName;
         private string passWord;
-        private bool accountType;
+        private int accountType;
         public string UserName { get { return userName; } set { userName = value; } }
         public string PassWord { get { return passWord; } set { passWord = value; } }
 
-        public bool AccountType { get => accountType; set => accountType = value; }
+        public int AccountType { get => accountType; set => accountType = value; }
 
-        public User(string userName, string passWord, bool accountType)
+        public User(string userName, string passWord, int accountType)
         {
             this.UserName = userName;
             this.PassWord = passWord;

@@ -13,7 +13,7 @@ namespace QuanLiNhanSu_YT
 {
     public partial class FormUser : Form
     {
-        List<string> listAccountType = new List<string>() { "Quan ly", "Nhan vien" };
+        List<string> listAccountType = new List<string>() { "Sinh viên", "Giảng viên", "Admin" };
         int index = -1;
         public FormUser()
         {
@@ -44,11 +44,14 @@ namespace QuanLiNhanSu_YT
 
             switch (ListUser.Instance.ListAccountUser[index].AccountType)
             {
-                case true:
-                    cboStaff.Text = "Quan ly";
+                case 1:
+                    cboStaff.Text = "Sinh viên";
                     break;
-                case false:
-                    cboStaff.Text = "Nhan vien";
+                case 2:
+                    cboStaff.Text = "Giảng viên";
+                    break;
+                case 3:
+                    cboStaff.Text = "Admin";
                     break;
             }
         }
@@ -57,17 +60,21 @@ namespace QuanLiNhanSu_YT
         {
             string userName = txbUserName.Text;
             string passWord = txbPassword.Text;
-            bool accountType = false;
+            int accountType = 0;
 
             switch (cboStaff.Text)
             {
-                case "Quan ly":
-                    accountType = true;
-                    cboStaff.Text = "Quan ly";
+                case "Sinh viên":
+                    accountType = 1;
+                    cboStaff.Text = "Sinh viên";
                     break;
-                case "Nhan vien":
-                    accountType = false;
-                    cboStaff.Text = "Nhan vien";
+                case "Giảng viên":
+                    accountType = 2;
+                    cboStaff.Text = "Giảng viên";
+                    break;
+                case "Admin":
+                    accountType = 3;
+                    cboStaff.Text = "Admin";
                     break;
             }
 
@@ -79,22 +86,26 @@ namespace QuanLiNhanSu_YT
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (index < 0) {
-                MessageBox.Show("Vui long chon 1 ban ghi");    
+                MessageBox.Show("Vui lòng chọn 1 bản ghi");    
                 return; 
             }
             string userName = txbUserName.Text;
             string passWord = txbPassword.Text;
-            bool accountType = false;
+            int accountType = 0;
 
             switch (cboStaff.Text)
             {
-                case "Quan ly":
-                    accountType = true;
-                    cboStaff.Text = "Quan ly";
+                case "Sinh viên":
+                    accountType = 1;
+                    cboStaff.Text = "Sinh viên";
                     break;
-                case "Nhan vien":
-                    accountType = false;
-                    cboStaff.Text = "Nhan vien";
+                case "Giảng viên":
+                    accountType = 2;
+                    cboStaff.Text = "Giảng viên";
+                    break;
+                case "Admin":
+                    accountType = 3;
+                    cboStaff.Text = "Admin";
                     break;
             }
             ListUser.Instance.ListAccountUser[index].UserName = userName;
@@ -107,7 +118,7 @@ namespace QuanLiNhanSu_YT
         {
             if (index < 0)
             {
-                MessageBox.Show("Vui long chon 1 ban ghi");
+                MessageBox.Show("Vui lòng chọn 1 bản ghi");
                 return;
             }
             ListUser.Instance.ListAccountUser.RemoveAt(index);

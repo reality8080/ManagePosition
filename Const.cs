@@ -9,7 +9,7 @@ namespace QuanLiNhanSu_YT
     public class Const
     {
         public static Employee NewEmploy = null;
-        public static bool AccountType;
+        public static int AccountType;
         public static List<string> ListDepartment = new List<string>() {"Luật", "IT", "Kinh tế", "Kỹ thuật", "Điện - điện tử" };
 
         public static List<string> listSex = new List<string>() { "Nam", "Nữ", "Không xác định"};

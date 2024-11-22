@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +23,7 @@ namespace QuanLiNhanSu_YT
             {
                 if (userName == ListUser.Instance.ListAccountUser[i].UserName && passWord == ListUser.Instance.ListAccountUser[i].PassWord)
                 {
-                    Const.AccountType = ListUser.Instance.ListAccountUser[i].AccountType;    
+                    Const.AccountType = ListUser.Instance.ListAccountUser[i].AccountType;
                     return true;
                 }
             }

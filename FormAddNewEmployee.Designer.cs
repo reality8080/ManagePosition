@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboContract = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.cboSex = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cboDepartment = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txbPosition = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.txbName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txbEmployeeID = new System.Windows.Forms.TextBox();
             this.dtpkBirthDay = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboContract = new System.Windows.Forms.ComboBox();
-            this.cboDepartment = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txbPosition = new System.Windows.Forms.TextBox();
-            this.txbEmployeeID = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -91,6 +91,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
             // 
+            // cboContract
+            // 
+            this.cboContract.FormattingEnabled = true;
+            this.cboContract.Location = new System.Drawing.Point(595, 409);
+            this.cboContract.Name = "cboContract";
+            this.cboContract.Size = new System.Drawing.Size(283, 28);
+            this.cboContract.TabIndex = 29;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.Location = new System.Drawing.Point(892, 409);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(25, 20);
+            this.label25.TabIndex = 25;
+            this.label25.Text = "(*)";
+            // 
             // cboSex
             // 
             this.cboSex.FormattingEnabled = true;
@@ -99,6 +117,44 @@
             this.cboSex.Size = new System.Drawing.Size(283, 28);
             this.cboSex.TabIndex = 27;
             this.cboSex.SelectedIndexChanged += new System.EventHandler(this.cboSex_SelectedIndexChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.Red;
+            this.label24.Location = new System.Drawing.Point(892, 328);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(25, 20);
+            this.label24.TabIndex = 24;
+            this.label24.Text = "(*)";
+            // 
+            // cboDepartment
+            // 
+            this.cboDepartment.FormattingEnabled = true;
+            this.cboDepartment.Location = new System.Drawing.Point(595, 203);
+            this.cboDepartment.Name = "cboDepartment";
+            this.cboDepartment.Size = new System.Drawing.Size(283, 28);
+            this.cboDepartment.TabIndex = 28;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(892, 232);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(25, 20);
+            this.label21.TabIndex = 21;
+            this.label21.Text = "(*)";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(448, 312);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(25, 20);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "(*)";
             // 
             // label20
             // 
@@ -109,6 +165,15 @@
             this.label20.Size = new System.Drawing.Size(25, 20);
             this.label20.TabIndex = 20;
             this.label20.Text = "(*)";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(493, 412);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 20);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Trạng thái";
             // 
             // label18
             // 
@@ -130,6 +195,22 @@
             this.label17.TabIndex = 17;
             this.label17.Text = "(*)";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(493, 306);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 20);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Chức vụ";
+            // 
+            // txbPosition
+            // 
+            this.txbPosition.Location = new System.Drawing.Point(595, 300);
+            this.txbPosition.Name = "txbPosition";
+            this.txbPosition.Size = new System.Drawing.Size(283, 26);
+            this.txbPosition.TabIndex = 17;
+            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(128, 412);
@@ -143,6 +224,31 @@
             this.txbName.Name = "txbName";
             this.txbName.Size = new System.Drawing.Size(314, 26);
             this.txbName.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(32, 306);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 20);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Mã số sinh viên";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(493, 201);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(36, 20);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Lớp";
+            // 
+            // txbEmployeeID
+            // 
+            this.txbEmployeeID.Location = new System.Drawing.Point(159, 306);
+            this.txbEmployeeID.Name = "txbEmployeeID";
+            this.txbEmployeeID.Size = new System.Drawing.Size(283, 26);
+            this.txbEmployeeID.TabIndex = 16;
             // 
             // dtpkBirthDay
             // 
@@ -186,112 +292,6 @@
             this.label1.Size = new System.Drawing.Size(77, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên";
-            // 
-            // cboContract
-            // 
-            this.cboContract.FormattingEnabled = true;
-            this.cboContract.Location = new System.Drawing.Point(595, 409);
-            this.cboContract.Name = "cboContract";
-            this.cboContract.Size = new System.Drawing.Size(283, 28);
-            this.cboContract.TabIndex = 29;
-            // 
-            // cboDepartment
-            // 
-            this.cboDepartment.FormattingEnabled = true;
-            this.cboDepartment.Location = new System.Drawing.Point(595, 224);
-            this.cboDepartment.Name = "cboDepartment";
-            this.cboDepartment.Size = new System.Drawing.Size(283, 28);
-            this.cboDepartment.TabIndex = 28;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.Red;
-            this.label25.Location = new System.Drawing.Point(892, 409);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(25, 20);
-            this.label25.TabIndex = 25;
-            this.label25.Text = "(*)";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.Red;
-            this.label24.Location = new System.Drawing.Point(892, 328);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(25, 20);
-            this.label24.TabIndex = 24;
-            this.label24.Text = "(*)";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(448, 312);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(25, 20);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "(*)";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(892, 232);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(25, 20);
-            this.label21.TabIndex = 21;
-            this.label21.Text = "(*)";
-            // 
-            // txbPosition
-            // 
-            this.txbPosition.Location = new System.Drawing.Point(595, 300);
-            this.txbPosition.Name = "txbPosition";
-            this.txbPosition.Size = new System.Drawing.Size(283, 26);
-            this.txbPosition.TabIndex = 17;
-            // 
-            // txbEmployeeID
-            // 
-            this.txbEmployeeID.Location = new System.Drawing.Point(159, 306);
-            this.txbEmployeeID.Name = "txbEmployeeID";
-            this.txbEmployeeID.Size = new System.Drawing.Size(283, 26);
-            this.txbEmployeeID.TabIndex = 16;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 306);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 20);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Mã số sinh viên";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(493, 306);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 20);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Chức vụ";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(493, 227);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 20);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Lớp";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(493, 412);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 20);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Trạng thái";
             // 
             // label15
             // 

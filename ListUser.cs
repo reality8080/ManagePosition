@@ -24,8 +24,9 @@ namespace QuanLiNhanSu_YT
         public ListUser()
         {
             listAccountUser = new List<User>();
-            listAccountUser.Add(new User("QuangDuyReal", "Duy161005.", true));
-            listAccountUser.Add(new User("fansjaki@gmail.com", "3380", false));
+            listAccountUser.Add(new User("fansjaki@gmail.com", "3380", 1));
+            listAccountUser.Add(new User("QuangDuyReal", "Duy161005.", 2));
+            listAccountUser.Add(new User("admin", "123", 3));
         }
     }
 }

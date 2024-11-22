@@ -25,9 +25,13 @@ namespace QuanLiNhanSu_YT
         #region Method
         void Decentralization()
         {
-            if(Const.AccountType == false)
+            if(Const.AccountType == 1)
             {
                 tsmiDepartment.Enabled = tsmiEmployee.Enabled = tsmiUser.Enabled = false;
+            }
+            if(Const.AccountType == 2)
+            {
+                tsmiDepartment.Enabled = tsmiUser.Enabled =  false;
             }
         }
 
@@ -75,8 +79,8 @@ namespace QuanLiNhanSu_YT
         }
         private void quảnLíToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(!Const.AccountType)
-                MessageBox.Show("Bạn không phải là admin", "Cảnh báo");
+            if(Const.AccountType < 2)
+                MessageBox.Show("Bạn không phải là giảng viên hay admin", "Cảnh báo");
         }
         private void tsmiUser_Click(object sender, EventArgs e)
         {
@@ -85,6 +89,7 @@ namespace QuanLiNhanSu_YT
         }
         private void tsmiDepartment_Click(object sender, EventArgs e)
         {
+            if (Const.AccountType == 2) MessageBox.Show("Bạn không phải là admin", "Cảnh báo");
             FormDepartment f = new FormDepartment();
             f.ShowDialog();
         }
@@ -196,8 +201,6 @@ namespace QuanLiNhanSu_YT
             ListEmployee.Instance.ListEmploy[index].Contract = Const.NewEmploy.Contract;
 
             LoadListEmployee();
-
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -213,6 +216,22 @@ namespace QuanLiNhanSu_YT
         private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void tsmiGrade_Click(object sender, EventArgs e)
+        {
+            FormGrade f = new FormGrade();
+            f.ShowDialog();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void thốngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Const.AccountType < 3) MessageBox.Show("Bạn không phải admin", "Cảnh báo");
         }
     }
 }

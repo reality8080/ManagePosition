@@ -15,6 +15,7 @@ namespace QuanLiNhanSu_YT
         private string department;
         private string position;
         private string contract;
+        private double grade;
         public string Name { get => name; set => name = value; }
         public DateTime BirthDay { get => birthDay; set => birthDay = value; }
         public string Sex { get => sex; set => sex = value; }
@@ -22,6 +23,17 @@ namespace QuanLiNhanSu_YT
         public string Department { get => department; set => department = value; }
         public string Position { get => position; set => position = value; }
         public string Contract { get => contract; set => contract = value; }
+        public double Grade
+        {
+            get => grade;
+            set
+            {
+                if (value < 0 || value > 100)
+                    throw new ArgumentException("Điểm số phải nằm trong khoảng từ 0 đến 100.");
+                grade = value;
+            }
+        }
+
 
         public Employee(string name, DateTime birthDay, string sex, int employeeCode, string department, string position, string contract)
         {
@@ -32,6 +44,12 @@ namespace QuanLiNhanSu_YT
             this.Department = department;
             this.Position = position;
             this.Contract = contract;
+        }
+        public Employee(string name, int employeeCode, double grade)
+        {
+            this.Name = name;
+            this.EmployeeCode = employeeCode;
+            this.Grade = grade;
         }
         public Employee()
         {
