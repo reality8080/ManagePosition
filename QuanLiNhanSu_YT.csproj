@@ -53,6 +53,7 @@
     <Compile Include="Class\Student.cs" />
     <Compile Include="Class\Teacher.cs" />
     <Compile Include="Const.cs" />
+    <Compile Include="Coursecs.cs" />
     <Compile Include="date.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Form\Form1.cs">
@@ -97,6 +98,7 @@
     <Compile Include="Form\FormUser.Designer.cs">
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Human.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Form\form\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQLQuery1.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
