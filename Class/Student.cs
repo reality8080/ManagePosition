@@ -14,13 +14,16 @@ namespace QuanLiNhanSu_YT
     {
         private static string connect = "Data Source=LAPTOP-49M0TBTC;Initial Catalog=Person;Integrated Security=True;";
         private string _mssv;
+        private string password;
         private bool _statusAcc = false;
 
-        public string Mssv { get => _mssv; set => _mssv = value; }
+        public string Mssv { get => _mssv; private set => _mssv = value; }
+        public string Password { get => password; private set => password = value; }
 
         public Student(string id, string name, string date, string mssv, string grade, string password) : base(id, name, date)
         {
             Mssv = mssv;
+            Password=password;
             CreateStudentTableIfNotExists();
             if (!CheckStu())
             {

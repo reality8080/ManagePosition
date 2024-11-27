@@ -28,7 +28,7 @@ namespace QuanLiNhanSu_YT
             }
             return false;
         }
-        private void button1_MouseEnter(object sender, EventArgs e)
+        private void button1_MouseEnter(object sender, EventArgs e)l
         {
 
         }

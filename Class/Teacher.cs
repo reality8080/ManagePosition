@@ -13,16 +13,18 @@ namespace QuanLiNhanSu_YT
     {   private string connect = "Data Source=LAPTOP-49M0TBTC;Initial Catalog=Person;Integrated Security=True";
 
         private string _mscb;
+        private string password;
         //private string _course;
         //private string _education;
         private bool _status=false;
-        //private string _password;
+        private string _password;
         //private User _user;
 
         //public string Education { get => _education; set => _education = value; }
         public string Mscb { get => _mscb; set => _mscb = value; }
+        public string Password { get => password; set => password = value; }
+
         //public string Course { get => _course; set => _course = value; }
-        //public string Password { get => _password; set => _password = value; }
         //public User User { get => _user; set => _user = value; }
         //public bool Status { get => _status; set => _status = value; }
 
@@ -32,7 +34,7 @@ namespace QuanLiNhanSu_YT
             Mscb = mscb;
             //Course = course;
             //Education = edcation;
-            //Password = password;
+            Password = password;
             //User=new User(Mscb, Password, Status);
             CreateTeacherTableIfNotExists();
             if (!CheckTeac())
@@ -213,6 +215,11 @@ namespace QuanLiNhanSu_YT
                     }
                 }
             } 
+        }
+    
+        public void ChangPassword()
+        {
+
         }
 
         public string checkScore(string mssv)
