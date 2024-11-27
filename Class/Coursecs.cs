@@ -72,6 +72,28 @@ namespace QuanLiNhanSu_YT
                 }
             }
         }
+        //public static void addCourse(/*string mssv,*/ string teacher, string subject)
+        //{
+        //    CreateTableCourse();
+        //    if (!checkCourse(/*mssv,*/ teacher, subject))
+        //    {
+        //        using (SqlConnection connection = new SqlConnection(connect))
+        //        {
+        //            connection.Open();
+        //            string insertScore =
+        //                "INSERT INTO Score(Mssv, Teacher, Subject)" +
+        //                "VALUES(@Mssv, @Teacher, @Subject)";
+        //            using (SqlCommand insert = new SqlCommand(insertScore, connection))
+        //            {
+        //                //insert.Parameters.AddWithValue("@Mssv", mssv);
+        //                insert.Parameters.AddWithValue("@Teacher", teacher);
+        //                insert.Parameters.AddWithValue("@Subject", subject);
+        //                //insert.Parameters.AddWithValue("@Score", score);
+        //                insert.ExecuteNonQuery();
+        //            }
+        //        }
+        //    }
+        //}
         public static void CreateTableCourse()
         {
             using (SqlConnection connection = new SqlConnection(connect))
@@ -113,7 +135,24 @@ namespace QuanLiNhanSu_YT
             }
         }
 
-        
+        public static bool checkCourse(/*string mssv,*/ string teacher, string subject)
+        {
+            using (SqlConnection connection = new SqlConnection(connect))
+            {
+                connection.Open();
+                string CheckCourse = "SELECT COUNT(*) FROM Score WHERE Mssv=@Mssv ";
+                using (SqlCommand CheckCourseCommand = new SqlCommand(CheckCourse, connection))
+                {
+                    CheckCourseCommand.Parameters.AddWithValue("@Teacher", teacher);
+                    CheckCourseCommand.Parameters.AddWithValue("@Subject", subject);
+                    //CheckCourseCommand.Parameters.AddWithValue("@MMH",Mmh);
+                    //CheckCourseCommand.Parameters.AddWithValue("@Mssv", mssv);
+                    int count = (int)CheckCourseCommand.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
         public static void deleteScore(string mssv,string teacher,string subject)
         {
             if(checkCourse(mssv, teacher, subject) /*&& checkTableScore()*/)
