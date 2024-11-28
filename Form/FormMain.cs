@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace QuanLiNhanSu_YT
 {
@@ -24,9 +25,13 @@ namespace QuanLiNhanSu_YT
         #region Method
         void Decentralization()
         {
-            if(Const.AccountType == false)
+            if(Const.AccountType == 1)
             {
                 tsmiDepartment.Enabled = tsmiEmployee.Enabled = tsmiUser.Enabled = false;
+            }
+            if(Const.AccountType == 2)
+            {
+                tsmiDepartment.Enabled = tsmiUser.Enabled =  false;
             }
         }
 
@@ -74,8 +79,8 @@ namespace QuanLiNhanSu_YT
         }
         private void quảnLíToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(!Const.AccountType)
-                MessageBox.Show("Bạn không phải là admin", "Cảnh báo");
+            if(Const.AccountType < 2)
+                MessageBox.Show("Bạn không phải là giảng viên hay admin", "Cảnh báo");
         }
         private void tsmiUser_Click(object sender, EventArgs e)
         {
@@ -84,6 +89,7 @@ namespace QuanLiNhanSu_YT
         }
         private void tsmiDepartment_Click(object sender, EventArgs e)
         {
+            if (Const.AccountType == 2) MessageBox.Show("Bạn không phải là admin", "Cảnh báo");
             FormDepartment f = new FormDepartment();
             f.ShowDialog();
         }
@@ -125,6 +131,32 @@ namespace QuanLiNhanSu_YT
             LoadListEmployee();
             
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string name = txbName.Text.Trim();
+            string studentID = txbStudentID.Text.Trim();
+            SearchEmployee(name, studentID);
+        }
+        private void SearchEmployee(string name, string employeeCode)
+        {
+            dtgvEmployee.Rows.Clear();
+
+            var filteredList = ListEmployee.Instance.ListEmploy
+                                .Where(emp =>
+                                    (string.IsNullOrEmpty(name) || emp.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                                    (string.IsNullOrEmpty(employeeCode) || emp.EmployeeCode.ToString().Contains(employeeCode)))
+                                .ToList();
+
+            foreach (var item in filteredList)
+            {
+                dtgvEmployee.Rows.Add(item.EmployeeCode, item.Name, item.BirthDay.ToShortDateString(), item.Sex, item.Department, item.Position, item.Contract);
+            }
+
+            if (filteredList.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo");
+            }
+        }
         #endregion
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -151,7 +183,7 @@ namespace QuanLiNhanSu_YT
         {
             if (index < 0 || index >= ListEmployee.Instance.ListEmploy.Count)
             {
-                MessageBox.Show("Hay chon 1 ban ghi");
+                MessageBox.Show("Hãy chọn 1 bản ghi", "Thông báo");
                 return;
             }
             FormEditEmployee f = new FormEditEmployee();
@@ -169,19 +201,37 @@ namespace QuanLiNhanSu_YT
             ListEmployee.Instance.ListEmploy[index].Contract = Const.NewEmploy.Contract;
 
             LoadListEmployee();
-
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (index < 0 || index >= ListEmployee.Instance.ListEmploy.Count)
             {
-                MessageBox.Show("Hay chon 1 ban ghi");
+                MessageBox.Show("Hãy chọn 1 bản ghi", "Thông báo");
                 return;
             }
             ListEmployee.Instance.ListEmploy.RemoveAt(index);
             LoadListEmployee() ;
+        }
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void tsmiGrade_Click(object sender, EventArgs e)
+        {
+            FormGrade f = new FormGrade();
+            f.ShowDialog();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void thốngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Const.AccountType < 3) MessageBox.Show("Bạn không phải admin", "Cảnh báo");
         }
     }
 }

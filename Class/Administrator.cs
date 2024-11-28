@@ -37,13 +37,14 @@ namespace QuanLiNhanSu_YT
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 connection.Open();
-                string insert = @"INSERT INTO Admin(Id, USER,PASSWORD)
-                VALUES(@Id,@USER,@PASSWORD)";
+                string insert = @"INSERT INTO Admin(Id, USER,PASSWORD,STATUS)
+                VALUES(@Id,@USER,@PASSWORD,@STATUS)";
                 using (SqlCommand command = new SqlCommand(insert, connection))
                 {
                     command.Parameters.AddWithValue("@Id", Id);
                     command.Parameters.AddWithValue("@USER", Username);
                     command.Parameters.AddWithValue("@PASSWORD", Password);
+                    command.Parameters.AddWithValue("@STATUS", true);
                     command.ExecuteNonQuery();
                 }
             }
@@ -60,6 +61,9 @@ namespace QuanLiNhanSu_YT
                         Id NVARCHAR(50) PRIMARY KEY,
                         USER VARCHAR(100),
                         PASSWORD VARCHAR(100),
+                        STATUS bit,
+                        FOREIGN KEY(Id) REFERENCE Human(Id)
+)
                 END";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -103,7 +107,7 @@ namespace QuanLiNhanSu_YT
             {
                 connection.Open();
                 string str = $"{base.ToString()}\n";
-                string query = @"SELECT USER, PASSWORD FROM Admin WHERE Id=@Id";
+                string query = @"SELECT USER, PASSWORD, STATUS FROM Admin WHERE Id=@Id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", Id);
@@ -111,7 +115,7 @@ namespace QuanLiNhanSu_YT
                     {
                         while (reader.Read())
                         {
-                            str += $"User {reader.GetString(0)}, Password {reader.GetString(1)}";
+                            str += $"User {reader.GetString(0)}, Password {reader.GetString(1)}, STATUS {reader.GetString(2)}\n";
                         }
                     }
                 }

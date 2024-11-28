@@ -52,6 +52,16 @@ namespace QuanLiNhanSu_YT
             this.Close();
         }
 
+        private void cboSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void txbName_TextChanged(object sender, EventArgs e)
         {
 

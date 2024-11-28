@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrator.cs" />
     <Compile Include="Class\Administrator.cs" />
     <Compile Include="Class\Coursecs.cs" />
     <Compile Include="Class\Human.cs" />
@@ -84,6 +83,12 @@
     </Compile>
     <Compile Include="Form\FormEditEmployee.Designer.cs">
       <DependentUpon>FormEditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormGrade.Designer.cs">
+      <DependentUpon>FormGrade.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\FormMain.cs">
       <SubType>Form</SubType>
@@ -118,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormEditEmployee.resx">
       <DependentUpon>FormEditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormGrade.resx">
+      <DependentUpon>FormGrade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -156,11 +164,6 @@
   <ItemGroup>
     <None Include="Resources\view.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Form\form\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SQLQuery1.sql" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

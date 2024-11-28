@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace QuanLiNhanSu_YT
 {
-    public class Teacher : Human
+    public class Teacher : User
     {   private string connect = "Data Source=LAPTOP-49M0TBTC;Initial Catalog=Person;Integrated Security=True";
 
         private string _mscb;
@@ -29,7 +29,7 @@ namespace QuanLiNhanSu_YT
         //public bool Status { get => _status; set => _status = value; }
 
         public Teacher(string id,string name, string birth,string mscb,string subject, string edcation, string password):
-            base(id, name,birth)
+            base(id, name,birth, mscb, password)
         {
             Mscb = mscb;
             //Course = course;
@@ -56,13 +56,10 @@ namespace QuanLiNhanSu_YT
                     Mscb NVARCHAR(50) UNIQUE,
                     Subject NVARCHAR(50),
                     Education NVARCHAR(50),
-                    Status bit,
-                    Password NVARCHAR(100),
                     FOREIGN KEY (Id) REFERENCES Human(Id)
                 )
             END
         ";
-
                 using (SqlCommand check = new SqlCommand(checkTable, connection))
                 {
                     check.ExecuteNonQuery();
@@ -90,16 +87,30 @@ namespace QuanLiNhanSu_YT
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 connection.Open();
-                string insertStu = "INSERT INTO Teacher(Id, Mscb, Subject, Education, Status, Password) VALUES (@Id, @Mscb, @Subject,@Education, @Status, @Password)";
+                string insertStu = "INSERT INTO Teacher(Id, Mscb, Subject, Education) VALUES (@Id, @Mscb, @Subject,@Education, @Status, @Password)";
                 using (SqlCommand insert = new SqlCommand(insertStu, connection))
                 {
                     insert.Parameters.AddWithValue("@Id", Id);
                     insert.Parameters.AddWithValue("@Mscb", mscb);
                     insert.Parameters.AddWithValue("@Subject", subject);
                     insert.Parameters.AddWithValue("@Education", education);
-                    insert.Parameters.AddWithValue("@Status", _status);
-                    insert.Parameters.AddWithValue("@Password", password);
-                    insert.ExecuteNonQuery();
+                    try
+                    {
+                        insert.ExecuteNonQuery();
+                        //MessageBox.Show("Người dùng đã được thêm thành công.","Success",MessageBoxButtons.OK);
+                    }
+                    catch (SqlException ex)
+                    {
+                        // Kiểm tra mã lỗi để xác định loại lỗi
+                        if (ex.Number == 2627) // Mã lỗi cho vi phạm unique constraint
+                        {
+                            MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên khác.", "Error", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Canh bao", MessageBoxButtons.OK);
+                        }
+                    }
                 }
             }
         }
@@ -109,7 +120,7 @@ namespace QuanLiNhanSu_YT
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 connection.Open();
-                string query = "SELECT Mscb,Subject, Education , Status, Password FROM Teacher WHERE Id = @Id";
+                string query = "SELECT Mscb,Subject, Education FROM Teacher WHERE Id = @Id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", Id);
@@ -119,9 +130,7 @@ namespace QuanLiNhanSu_YT
                         {
                             str += $"Mscb:{reader.GetString(0)}\n" +
                                 $"Subject :{reader.GetString(1)}\n" +
-                                $"Education:{reader.GetString(2)} \n" +
-                                $"Status:{reader.GetBoolean(3)} \n" +
-                                $"Password:{reader.GetString(4)}\n";
+                                $"Education:{reader.GetString(2)} \n";
                         }
                     }
                 }
@@ -175,24 +184,6 @@ namespace QuanLiNhanSu_YT
                 }
             }
         }
-
-        //public void addCourse(string mssv)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(connect))
-        //    {
-        //        connection.Open();
-        //        string query = "SELECT Teacher,Subject FROM Teacher WHERE Id=@Id";
-        //        using (SqlCommand command = new SqlCommand(query, connection))
-        //        {
-        //            command.Parameters.AddWithValue("@Id", Id);
-        //            using (SqlDataReader reader = command.ExecuteReader())
-        //            {
-        //               // Coursecs.addCourse(mssv, reader.GetString(0), reader.GetString(1));
-        //               //Kiểm tra môn học có trong bảng hay không
-        //            }
-        //        }
-        //    }
-        //}
 
         public void updateScore(string mssv, string score)
         {

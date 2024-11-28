@@ -20,8 +20,8 @@ namespace QuanLiNhanSu_YT
         void LoadListDepartment()
         {
             lbDepartment.DataSource = null;
-            lbDepartment.DataSource = ListDepartment.Instance.ListDepartmen;
-            lbDepartment.DisplayMember = "Name";
+            lbDepartment.DataSource = Const.ListDepartment;
+            //lbDepartment.DisplayMember = "Name";
         }
 
         private void FormDepartment_Load(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace QuanLiNhanSu_YT
         {
             index = lbDepartment.SelectedIndex;
             if(index < 0) { return; }
-            txbDepartmentName.Text = ListDepartment.Instance.ListDepartmen[index].Name;
+            txbDepartmentName.Text = Const.ListDepartment[index];
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace QuanLiNhanSu_YT
             {
                 if(departmentName == i)
                 {
-                    MessageBox.Show("Phòng này đã có trong danh sách!", "Cảnh báo");
+                    MessageBox.Show("Lớp này đã có trong danh sách!", "Cảnh báo");
                     flag = true; break;
                 }
             }

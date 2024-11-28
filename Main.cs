@@ -12,10 +12,13 @@ namespace Class
     {
         public static void Main(string[] args)
         {
-            Student student = new Student("0792","Hoten",20,"30/07/2005","231102","9");
-            student.enrollCourse("Li","Nam");
-            //student.addScore("Li", "Nam", 10);
-            MessageBox.Show($"{student.ToString()}","Thong tin", MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
+            //Student stu=new Student("0792","Phu","30/07/2005","231102","CNTT","12@1");
+            //Teacher tea = new Teacher("0791", "Nam", "30/07/2005", "12345", "KTMT", "GS.TS", "1122");
+            //Administrator ad = new Administrator("0970", "Hai", "30/07/2005", "Hai@", "286");
+            //tea.addScore("0792", "1");
+            //stu.addCourse("Nam", "KTMT");
+            //Student Stu1=ad.addStudent("0793", "Phu", "30/07/2005", "231103", "CNTT", "12@1");
+            //MessageBox.Show( tea.checkScore("231103"),"Hien thi",MessageBoxButtons.OK);
         }
     }
 }

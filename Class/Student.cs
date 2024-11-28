@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace QuanLiNhanSu_YT
 {
-    public class Student : Human
+    public class Student : User
     {
         private static string connect = "Data Source=LAPTOP-49M0TBTC;Initial Catalog=Person;Integrated Security=True;";
         private string _mssv;
@@ -20,7 +20,7 @@ namespace QuanLiNhanSu_YT
         public string Mssv { get => _mssv; private set => _mssv = value; }
         public string Password { get => password; private set => password = value; }
 
-        public Student(string id, string name, string date, string mssv, string grade, string password) : base(id, name, date)
+        public Student(string id, string name, string date, string mssv, string grade, string password) : base(id,name,date, mssv,password)
         {
             Mssv = mssv;
             Password=password;
@@ -29,8 +29,6 @@ namespace QuanLiNhanSu_YT
             {
                 InsertStudentRecord(Id, mssv, grade, password);
             }
-
-
         }
 
         private void CreateStudentTableIfNotExists()
@@ -45,8 +43,6 @@ namespace QuanLiNhanSu_YT
                         Id NVARCHAR(50) PRIMARY KEY,
                         Mssv NVARCHAR(50) UNIQUE,
                         Grade NVARCHAR(50),
-                        Status bit,
-                        Password NVARCHAR(100),
                         FOREIGN KEY (Id) REFERENCES Human(Id)
                     )
                 END";
@@ -70,9 +66,23 @@ namespace QuanLiNhanSu_YT
                     insert.Parameters.AddWithValue("@Id", Id);
                     insert.Parameters.AddWithValue("@Mssv", mssv);
                     insert.Parameters.AddWithValue("@Grade", grade);
-                    insert.Parameters.AddWithValue("@Status", _statusAcc);
-                    insert.Parameters.AddWithValue("@Password", password);
-                    insert.ExecuteNonQuery();
+                    try
+                    {
+                        insert.ExecuteNonQuery();
+                        //MessageBox.Show("Người dùng đã được thêm thành công.","Success",MessageBoxButtons.OK);
+                    }
+                    catch (SqlException ex)
+                    {
+                        // Kiểm tra mã lỗi để xác định loại lỗi
+                        if (ex.Number == 2627) // Mã lỗi cho vi phạm unique constraint
+                        {
+                            MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên khác.", "Error", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Canh bao", MessageBoxButtons.OK);
+                        }
+                    }
                 }
             }
         }
@@ -105,7 +115,7 @@ namespace QuanLiNhanSu_YT
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 connection.Open();
-                string query = "SELECT Mssv, Grade, Status, Password FROM Student WHERE Id = @Id";
+                string query = "SELECT Mssv, Grade FROM Student WHERE Id = @Id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", Id);
@@ -114,9 +124,7 @@ namespace QuanLiNhanSu_YT
                         if (reader.Read())
                         {
                             str += $"Mssv: {reader.GetString(0)}\n" +
-                                   $"Grade: {reader.GetString(1)}\n" +
-                                   $"Status: {reader.GetBoolean(2)}\n" +
-                                   $"Password: {reader.GetString(3)}\n";
+                                   $"Grade: {reader.GetString(1)}\n";
                         }
                     }
                 }
