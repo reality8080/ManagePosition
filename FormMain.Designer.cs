@@ -37,10 +37,16 @@
             this.đăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiEmployee = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGrade = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDepartment = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnShow = new System.Windows.Forms.ToolStripButton();
+            this.btnAddNew = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
@@ -60,12 +66,6 @@
             this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsmiGrade = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnShow = new System.Windows.Forms.ToolStripButton();
-            this.btnAddNew = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.menuStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -100,7 +100,7 @@
             this.tsmiUser,
             this.đăngToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(103, 30);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
             // tsmiUser
@@ -124,7 +124,7 @@
             this.tsmiGrade,
             this.tsmiDepartment});
             this.quảnLíToolStripMenuItem.Name = "quảnLíToolStripMenuItem";
-            this.quảnLíToolStripMenuItem.Size = new System.Drawing.Size(84, 30);
+            this.quảnLíToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             this.quảnLíToolStripMenuItem.Text = "Quản lí";
             this.quảnLíToolStripMenuItem.Click += new System.EventHandler(this.quảnLíToolStripMenuItem_Click);
             // 
@@ -135,11 +135,18 @@
             this.tsmiEmployee.Text = "Sinh viên";
             this.tsmiEmployee.Click += new System.EventHandler(this.tsmiEmployee_Click);
             // 
+            // tsmiGrade
+            // 
+            this.tsmiGrade.Name = "tsmiGrade";
+            this.tsmiGrade.Size = new System.Drawing.Size(270, 34);
+            this.tsmiGrade.Text = "Điểm số";
+            this.tsmiGrade.Click += new System.EventHandler(this.tsmiGrade_Click);
+            // 
             // tsmiDepartment
             // 
             this.tsmiDepartment.Name = "tsmiDepartment";
             this.tsmiDepartment.Size = new System.Drawing.Size(270, 34);
-            this.tsmiDepartment.Text = "Phòng ban";
+            this.tsmiDepartment.Text = "Lớp";
             this.tsmiDepartment.Click += new System.EventHandler(this.tsmiDepartment_Click);
             // 
             // thốngToolStripMenuItem
@@ -152,7 +159,7 @@
             // trợGiúpToolStripMenuItem
             // 
             this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(93, 30);
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(93, 29);
             this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
             // toolStrip1
@@ -174,22 +181,66 @@
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
+            // btnShow
+            // 
+            this.btnShow.Image = global::QuanLiNhanSu_YT.Properties.Resources.view;
+            this.btnShow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(76, 29);
+            this.btnShow.Text = "Xem";
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNew.Image")));
+            this.btnAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(84, 29);
+            this.btnAddNew.Text = "Thêm";
+            this.btnAddNew.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(71, 29);
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(70, 29);
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(69, 29);
+            this.btnSave.Text = "Lưu";
+            // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(44, 33);
+            this.toolStripLabel5.Size = new System.Drawing.Size(44, 29);
             this.toolStripLabel5.Text = "Hủy";
             // 
             // toolStripLabel6
             // 
             this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(83, 33);
+            this.toolStripLabel6.Size = new System.Drawing.Size(83, 29);
             this.toolStripLabel6.Text = "Cập nhật";
             // 
             // toolStripLabel7
             // 
             this.toolStripLabel7.Name = "toolStripLabel7";
-            this.toolStripLabel7.Size = new System.Drawing.Size(27, 33);
+            this.toolStripLabel7.Size = new System.Drawing.Size(27, 29);
             this.toolStripLabel7.Text = "In";
             // 
             // groupBox1
@@ -340,57 +391,6 @@
             this.colContract.MinimumWidth = 8;
             this.colContract.Name = "colContract";
             this.colContract.Width = 150;
-            // 
-            // tsmiGrade
-            // 
-            this.tsmiGrade.Name = "tsmiGrade";
-            this.tsmiGrade.Size = new System.Drawing.Size(270, 34);
-            this.tsmiGrade.Text = "Điểm số";
-            this.tsmiGrade.Click += new System.EventHandler(this.tsmiGrade_Click);
-            // 
-            // btnShow
-            // 
-            this.btnShow.Image = global::QuanLiNhanSu_YT.Properties.Resources.view;
-            this.btnShow.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(76, 33);
-            this.btnShow.Text = "Xem";
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNew.Image")));
-            this.btnAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(84, 29);
-            this.btnAddNew.Text = "Thêm";
-            this.btnAddNew.Click += new System.EventHandler(this.toolStripLabel1_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(71, 33);
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(70, 33);
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(69, 33);
-            this.btnSave.Text = "Lưu";
             // 
             // FormMain
             // 

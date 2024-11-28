@@ -27,7 +27,7 @@ namespace QuanLiNhanSu_YT
         {
             if(Const.AccountType == 1)
             {
-                tsmiDepartment.Enabled = tsmiEmployee.Enabled = tsmiUser.Enabled = false;
+                tsmiDepartment.Enabled = tsmiEmployee.Enabled = tsmiUser.Enabled = tsmiGrade.Enabled = false;
             }
             if(Const.AccountType == 2)
             {
