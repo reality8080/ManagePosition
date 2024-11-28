@@ -108,7 +108,7 @@ namespace QuanLiNhanSu_YT
                         }
                         else
                         {
-                            MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Canh bao", MessageBoxButtons.OK);
+                            MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Cảnh báo", MessageBoxButtons.OK);
                         }
                     }
                 }
