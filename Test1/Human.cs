@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -13,38 +14,15 @@ namespace QuanLiNhanSu_YT
 {
     public abstract class Human
     {
-        private string connect = "Data Source=LAPTOP-49M0TBTC;Initial Catalog=person;Integrated Security=True;";
+        private static string connect = "Data Source=LAPTOP-49M0TBTC;Initial Catalog=person;Integrated Security=True;";
 
 
         private SqlConnection _connection;
         private string id;
-<<<<<<<< HEAD:Human-Student/Human.cs
-        private string _name;
-        //private int _age;
-        private date _birth;
-        //private string sick;
-        //private bool status;
 
-        public string Name { get => _name; set => _name = value; }
-        //public int Age { get => _age; set => _age = value; }
-        public string Birth { get => _birth.ToString();/* set => _birth.String_ToDate(value);*/ }
-        //public string Sick { get => sick; set => sick = value; }
-        //public bool Status { get => status; set => status = value; }
-========
-
->>>>>>>> 9e84fdc4caf764c9d6a40d5c684bdbc14732ea36:Human.cs
         public string Id { get => id; set => id = value; }
         //public SqlConnection Connection { get => _connection; set => _connection = value; }
 
-<<<<<<<< HEAD:Human-Student/Human.cs
-        public Human(string id,string name/*, int age*/, string date) 
-        {
-            Id = id;
-            Name = name;
-            //Age = age;
-            _birth=new date();
-            _birth.String_ToDate(date);
-========
         public bool CheckIdExists(string id)
         {
             using (SqlConnection connection = new SqlConnection(connect))
@@ -75,7 +53,6 @@ namespace QuanLiNhanSu_YT
             }
 
             
->>>>>>>> 9e84fdc4caf764c9d6a40d5c684bdbc14732ea36:Human.cs
         }
 
         private void CreateTableIfNotExists()
@@ -121,14 +98,6 @@ namespace QuanLiNhanSu_YT
 
         public override string ToString()
         {
-<<<<<<<< HEAD:Human-Student/Human.cs
-            return $"ID:{Id}" +
-                    $"Name: {Name}\n" +
-                    //$"Age: {Age}\n" +
-                    $"BirthDay: {Birth}\n";
-                    //$"Sick: {Sick}" +
-                    //$"Status: {Status}";
-========
             string result = "";
             using (SqlConnection connection = new SqlConnection(connect))
             {
@@ -153,7 +122,28 @@ namespace QuanLiNhanSu_YT
             }
             return result;
 
->>>>>>>> 9e84fdc4caf764c9d6a40d5c684bdbc14732ea36:Human.cs
+        }
+
+        public static DataSet GetDataSet_H()
+        {
+            DataSet table = new DataSet();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connect ))
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM Human";
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                    {
+                        adapter.Fill(table);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi lấy dữ liệu: {ex.Message}");
+            }
+            return table;
         }
     }
 }

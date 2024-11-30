@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,25 +13,35 @@ namespace QuanLiNhanSu_YT
 {
     public partial class Form1 : Form
     {
+        public Teacher teacher;
+        public Administrator admin;
         public Form1()
         {
             InitializeComponent();
         }
         bool checkLogin(string userName, string passWord)
         {
-            for(int i = 0; i < ListUser.Instance.ListUsers.Count; i++)
+            //for(int i = 0; i < ListUser.Instance.ListUsers.Count; i++)
+            //{
+            //    if (userName == ListUser.Instance.ListUsers[i].UserName && passWord == ListUser.Instance.ListUsers[i].UserName)
+            //    {
+            //        Const.AccountType = ListUser.Instance.ListAccountUser[i].AccountType;
+            //        return true;
+            //    }
+            //}
+            if (userName == teacher.Mscb && passWord == teacher.Password)
             {
-                if (userName == ListUser.Instance.ListUsers[i].UserName && passWord == ListUser.Instance.ListUsers[i].UserName)
-                {
-                    Const.AccountType = ListUser.Instance.ListUsers[i].AccountType;    
-                    return true;
-                }
+                Const.AccountType=2; return true;
+            }
+            if (userName == admin.Username && passWord == admin.Password)
+            {
+                Const.AccountType = 3; return true;
+            }
+            if (Student.checkUser(userName, passWord))
+            {
+                Const.AccountType = 2; return true;
             }
             return false;
-        }
-        private void button1_MouseEnter(object sender, EventArgs e)l
-        {
-
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -66,7 +77,8 @@ namespace QuanLiNhanSu_YT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            teacher = new Teacher("Reality", "1102");
+            admin = new Administrator("Tran", "1104");
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -80,11 +92,6 @@ namespace QuanLiNhanSu_YT
                 txbPassWord.UseSystemPasswordChar = false;
             if (!ckbShowPassWord.Checked)
                 txbPassWord.UseSystemPasswordChar = true;
-        }
-
-        private void txbPassWord_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

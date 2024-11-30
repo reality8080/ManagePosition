@@ -135,7 +135,7 @@ namespace QuanLiNhanSu_YT
                     string query = "SELECT * FROM Human";
                     using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
                     {
-                        adapter.Fill(table,"Human");
+                        adapter.Fill(table);
                     }
                 }
             }

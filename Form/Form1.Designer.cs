@@ -54,7 +54,7 @@
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.Size = new System.Drawing.Size(348, 33);
             this.txbUserName.TabIndex = 2;
-            this.txbUserName.Text = "QuangDuyReal";
+            this.txbUserName.Text = "Tran";
             // 
             // LoginButton
             // 
@@ -67,7 +67,6 @@
             this.LoginButton.Text = "Đăng nhập";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
-            this.LoginButton.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             // 
             // ckbShowPassWord
             // 
@@ -88,9 +87,8 @@
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(348, 33);
             this.txbPassWord.TabIndex = 6;
-            this.txbPassWord.Text = "Duy161005.";
+            this.txbPassWord.Text = "1104";
             this.txbPassWord.UseSystemPasswordChar = true;
-            this.txbPassWord.TextChanged += new System.EventHandler(this.txbPassWord_TextChanged);
             // 
             // passwordLabel
             // 

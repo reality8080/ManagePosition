@@ -15,20 +15,21 @@ namespace QuanLiNhanSu_YT
     public class Coursecs
     {
         private static string connect = "Data Source=LAPTOP-49M0TBTC;Initial Catalog=Person;Integrated Security=True;";
-        public static void addScore(string mssv, string subject, string score)
+        public static void addScore(string mssv, string teacher, string subject, string score)
         {
             CreateTableCourse();
-            if (checkCourse(mssv, subject))
+            if (checkCourse(mssv, teacher, subject))
             {
                 using (SqlConnection connection = new SqlConnection(connect))
                 {
                     connection.Open();
                     string updateScore =
                         "UPDATE Score SET Score = @Score " +
-                        "WHERE Mssv = @Mssv AND Subject = @Subject";
+                        "WHERE Mssv = @Mssv AND Teacher = @Teacher AND Subject = @Subject";
                     using (SqlCommand update = new SqlCommand(updateScore, connection))
                     {
                         update.Parameters.AddWithValue("@Mssv", mssv);
+                        update.Parameters.AddWithValue("@Teacher", teacher);
                         update.Parameters.AddWithValue("@Subject", subject);
                         update.Parameters.AddWithValue("@Score", score);
 
@@ -50,20 +51,21 @@ namespace QuanLiNhanSu_YT
             }
         }
 
-        public static void addScore(string mssv, string subject)
+        public static void addScore(string mssv, string teacher, string subject)
         {
             CreateTableCourse();
-            if (!checkCourse(mssv,subject))
+            if (!checkCourse(mssv,teacher,subject))
             {
                 using (SqlConnection connection = new SqlConnection(connect))
                 {
                     connection.Open();
                     string insertScore =
-                        "INSERT INTO Score(Mssv, Subject)" +
-                        "VALUES(@Mssv, @Subject)";
+                        "INSERT INTO Score(Mssv, Teacher, Subject)" +
+                        "VALUES(@Mssv, @Teacher, @Subject)";
                     using (SqlCommand insert = new SqlCommand(insertScore, connection))
                     {
                         insert.Parameters.AddWithValue("@Mssv", mssv);
+                        insert.Parameters.AddWithValue("@Teacher", teacher);
                         insert.Parameters.AddWithValue("@Subject", subject);
                         //insert.Parameters.AddWithValue("@Score", score);
                         insert.ExecuteNonQuery();
@@ -81,9 +83,10 @@ namespace QuanLiNhanSu_YT
             BEGIN
                 CREATE TABLE Score(
                     Mssv NVARCHAR(50),
+                    Teacher NVARCHAR(50),
                     Subject NVARCHAR(50),
                     Score DECIMAL(5, 2), -- Thay đổi kích thước nếu cần
-                    PRIMARY KEY(Mssv,Subject),
+                    PRIMARY KEY(Mssv,Teacher,Subject),
                     FOREIGN KEY (Mssv) REFERENCES Student(Mssv)
                 )
             END";
@@ -93,7 +96,7 @@ namespace QuanLiNhanSu_YT
                 }
             } // Kết nối sẽ tự động đóng ở đây
         }
-        public static bool checkCourse(string mssv, string subject)
+        public static bool checkCourse(string mssv,string teacher, string subject)
         {
             using (SqlConnection connection = new SqlConnection(connect))
             {
@@ -101,6 +104,7 @@ namespace QuanLiNhanSu_YT
                 string CheckCourse = "SELECT COUNT(*) FROM Score WHERE Mssv=@Mssv ";
                 using (SqlCommand CheckCourseCommand = new SqlCommand(CheckCourse, connection))
                 {
+                    CheckCourseCommand.Parameters.AddWithValue("@Teacher", teacher);
                     CheckCourseCommand.Parameters.AddWithValue("@Subject", subject);
                     //CheckCourseCommand.Parameters.AddWithValue("@MMH",Mmh);
                     CheckCourseCommand.Parameters.AddWithValue("@Mssv", mssv);
@@ -110,37 +114,39 @@ namespace QuanLiNhanSu_YT
             }
         }
 
-        //public static bool checkCourse(/*string mssv,*/ string teacher, string subject)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(connect))
-        //    {
-        //        connection.Open();
-        //        string CheckCourse = "SELECT COUNT(*) FROM Score WHERE Mssv=@Mssv ";
-        //        using (SqlCommand CheckCourseCommand = new SqlCommand(CheckCourse, connection))
-        //        {
-        //            CheckCourseCommand.Parameters.AddWithValue("@Subject", subject);
-        //            //CheckCourseCommand.Parameters.AddWithValue("@MMH",Mmh);
-        //            //CheckCourseCommand.Parameters.AddWithValue("@Mssv", mssv);
-        //            int count = (int)CheckCourseCommand.ExecuteScalar();
-        //            return count > 0;
-        //        }
-        //    }
-        //}
-
-        public static void deleteScore(string mssv,string subject)
+        public static bool checkCourse(/*string mssv,*/ string teacher, string subject)
         {
-            if(checkCourse(mssv, subject) /*&& checkTableScore()*/)
+            using (SqlConnection connection = new SqlConnection(connect))
+            {
+                connection.Open();
+                string CheckCourse = "SELECT COUNT(*) FROM Score WHERE Mssv=@Mssv ";
+                using (SqlCommand CheckCourseCommand = new SqlCommand(CheckCourse, connection))
+                {
+                    CheckCourseCommand.Parameters.AddWithValue("@Teacher", teacher);
+                    CheckCourseCommand.Parameters.AddWithValue("@Subject", subject);
+                    //CheckCourseCommand.Parameters.AddWithValue("@MMH",Mmh);
+                    //CheckCourseCommand.Parameters.AddWithValue("@Mssv", mssv);
+                    int count = (int)CheckCourseCommand.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
+        public static void deleteScore(string mssv,string teacher,string subject)
+        {
+            if(checkCourse(mssv, teacher, subject) /*&& checkTableScore()*/)
             {
                 using (SqlConnection connection = new SqlConnection(connect))
                 {
                     connection.Open();
                    
-                    string query = "DELETE FROM Score WHERE Mssv = @Mssv AND Subject = @Subject";
+                    string query = "DELETE FROM Score WHERE Mssv = @Mssv AND Teacher = @Teacher AND Subject = @Subject";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         // Thêm tham số vào câu lệnh
                         command.Parameters.AddWithValue("@Mssv", mssv);
+                        command.Parameters.AddWithValue("@Teacher", teacher);
                         command.Parameters.AddWithValue("@Subject", subject);
                         int rowsAffected = command.ExecuteNonQuery(); // Thực hiện câu lệnh xóa
                         if (rowsAffected > 0)
@@ -161,7 +167,7 @@ namespace QuanLiNhanSu_YT
                 {
                     MessageBox.Show("Khong co bang");
                 }*/
-                if(!checkCourse(mssv, subject))
+                if(!checkCourse(mssv, teacher, subject))
                 {
                     MessageBox.Show("Khong tim thay Course");
                 }
@@ -175,7 +181,7 @@ namespace QuanLiNhanSu_YT
                 string str = "";
                 connection.Open();
                 string query = @"
-                SELECT h.Id,h.Name,h.Birth,s.Id,s.Mssv,sc.Subject,sc.Score
+                SELECT h.Id,h.Name,h.Birth,s.Id,s.Mssv,scTeacher,sc.Subject,sc.Score
                 FROM Human h
                 JOIN Student s ON h.Id=s.Id
                 LEFT HOIN Score sc ON s.Mssv=sc.Mssv
@@ -192,27 +198,29 @@ namespace QuanLiNhanSu_YT
                             string Name = reader["Name"].ToString();
                             string Birth = reader["Birth"].ToString();
                             string mssv = reader["Mssv"].ToString();
+                            string teacher = reader["Teacher"]?.ToString() ?? "N/A";
                             string subject = reader["Subject"]?.ToString() ?? "N/A";
                             decimal score = reader["Score"] != DBNull.Value ? reader.GetDecimal(reader.GetOrdinal("Score")) : 0;
 
                             // Thực hiện hành động với dữ liệu (ví dụ: in ra)
-                            str += $"HumanId: {Id}, Name: {Name}, StudentId: {Birth}, Mssv: {mssv}, Subject: {subject}, Score: {score}\n\n";
+                            str += $"HumanId: {Id}, Name: {Name}, StudentId: {Birth}, Mssv: {mssv}, Teacher: {teacher}, Subject: {subject}, Score: {score}\n\n";
                         }
                     }
                 }
                 MessageBox.Show(str);
             }
         }
-        public static string checkScore(string mssv, string Subject)// kiểm tra điểm
+        public static string checkScore(string mssv, string Teacher, string Subject)// kiểm tra điểm
         {
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 string str = "";
                 connection.Open();
-                string query = @"SELECT score FROM course WHERE Mssv = @Mssv AND Subject = @Subject";
+                string query = @"SELECT score FROM course WHERE Mssv = @Mssv AND Teacher = @Teacher AND Subject = @Subject";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Mssv", mssv); // Mã sinh viên
+                    command.Parameters.AddWithValue("@Teacher", Teacher); // Tên giáo viên
                     command.Parameters.AddWithValue("@Subject", Subject); // Tên môn học
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
