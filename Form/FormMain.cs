@@ -301,5 +301,10 @@ namespace QuanLiNhanSu_YT
         {
             btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = true;
         }
+
+        private void tsmiEmployee_Click(object sender, EventArgs e)
+        {
+            btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = true;
+        }
     }
 }
