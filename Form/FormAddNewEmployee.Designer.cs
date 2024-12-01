@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BirthTxt = new System.Windows.Forms.TextBox();
+            this.Passtxt = new System.Windows.Forms.TextBox();
+            this.TxtCCcd = new System.Windows.Forms.TextBox();
+            this.cccdLabel = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.cboDepartment = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -47,10 +51,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.TxtCCcd = new System.Windows.Forms.TextBox();
-            this.cccdLabel = new System.Windows.Forms.Label();
-            this.Passtxt = new System.Windows.Forms.TextBox();
-            this.BirthTxt = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +82,42 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
+            // 
+            // BirthTxt
+            // 
+            this.BirthTxt.Location = new System.Drawing.Point(114, 161);
+            this.BirthTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BirthTxt.Name = "BirthTxt";
+            this.BirthTxt.Size = new System.Drawing.Size(280, 22);
+            this.BirthTxt.TabIndex = 33;
+            this.BirthTxt.Text = "30/07/2005";
+            // 
+            // Passtxt
+            // 
+            this.Passtxt.Location = new System.Drawing.Point(529, 247);
+            this.Passtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Passtxt.Name = "Passtxt";
+            this.Passtxt.Size = new System.Drawing.Size(252, 22);
+            this.Passtxt.TabIndex = 32;
+            this.Passtxt.Text = "12@1";
+            // 
+            // TxtCCcd
+            // 
+            this.TxtCCcd.Location = new System.Drawing.Point(554, 78);
+            this.TxtCCcd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtCCcd.Name = "TxtCCcd";
+            this.TxtCCcd.Size = new System.Drawing.Size(227, 22);
+            this.TxtCCcd.TabIndex = 31;
+            this.TxtCCcd.Text = "0792";
+            // 
+            // cccdLabel
+            // 
+            this.cccdLabel.AutoSize = true;
+            this.cccdLabel.Location = new System.Drawing.Point(465, 81);
+            this.cccdLabel.Name = "cccdLabel";
+            this.cccdLabel.Size = new System.Drawing.Size(42, 16);
+            this.cccdLabel.TabIndex = 30;
+            this.cccdLabel.Text = "CCCd";
             // 
             // label25
             // 
@@ -169,6 +205,7 @@
             this.txbName.Name = "txbName";
             this.txbName.Size = new System.Drawing.Size(280, 22);
             this.txbName.TabIndex = 9;
+            this.txbName.Text = "Phu";
             // 
             // label9
             // 
@@ -195,6 +232,7 @@
             this.txbMSSv.Name = "txbMSSv";
             this.txbMSSv.Size = new System.Drawing.Size(252, 22);
             this.txbMSSv.TabIndex = 16;
+            this.txbMSSv.Text = "23110286";
             // 
             // label2
             // 
@@ -253,39 +291,6 @@
             this.label16.Size = new System.Drawing.Size(20, 16);
             this.label16.TabIndex = 16;
             this.label16.Text = "(*)";
-            // 
-            // TxtCCcd
-            // 
-            this.TxtCCcd.Location = new System.Drawing.Point(554, 78);
-            this.TxtCCcd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TxtCCcd.Name = "TxtCCcd";
-            this.TxtCCcd.Size = new System.Drawing.Size(227, 22);
-            this.TxtCCcd.TabIndex = 31;
-            // 
-            // cccdLabel
-            // 
-            this.cccdLabel.AutoSize = true;
-            this.cccdLabel.Location = new System.Drawing.Point(465, 81);
-            this.cccdLabel.Name = "cccdLabel";
-            this.cccdLabel.Size = new System.Drawing.Size(42, 16);
-            this.cccdLabel.TabIndex = 30;
-            this.cccdLabel.Text = "CCCd";
-            // 
-            // Passtxt
-            // 
-            this.Passtxt.Location = new System.Drawing.Point(529, 247);
-            this.Passtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Passtxt.Name = "Passtxt";
-            this.Passtxt.Size = new System.Drawing.Size(252, 22);
-            this.Passtxt.TabIndex = 32;
-            // 
-            // BirthTxt
-            // 
-            this.BirthTxt.Location = new System.Drawing.Point(114, 161);
-            this.BirthTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BirthTxt.Name = "BirthTxt";
-            this.BirthTxt.Size = new System.Drawing.Size(280, 22);
-            this.BirthTxt.TabIndex = 33;
             // 
             // FormAddNewEmployee
             // 

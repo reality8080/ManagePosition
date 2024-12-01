@@ -15,7 +15,7 @@ namespace QuanLiNhanSu_YT
     public class Coursecs
     {
         private static string connect = "Data Source=LAPTOP-49M0TBTC;Initial Catalog=Person;Integrated Security=True;";
-        public static void addScore(string mssv, string subject, string score)
+        public static void addScore(string mssv, string subject, string score="")
         {
             CreateTableCourse();
             if (checkCourse(mssv, subject))
@@ -24,8 +24,15 @@ namespace QuanLiNhanSu_YT
                 {
                     connection.Open();
                     string updateScore =
-                        "UPDATE Score SET Score = @Score " +
-                        "WHERE Mssv = @Mssv AND Subject = @Subject";
+                        @"MERGE INTO Score AS target
+                        USING(SELECT @Mssv AS Mssv, @Subject AS Subject, @Score AS Score) AS source
+                        ON target.Mssv=source.Mssv AND target.Subject=source.Subject
+                        WHEN MATCHED THEN
+                            UPDATE SET target.Score=source.Score
+                        WHEN NOT MATCHED THEN
+                            INSERT(Mssv,Subject,Score)
+                            VALUES(source.Mssv,source.Subject,source.Score);
+";
                     using (SqlCommand update = new SqlCommand(updateScore, connection))
                     {
                         update.Parameters.AddWithValue("@Mssv", mssv);
@@ -83,8 +90,8 @@ namespace QuanLiNhanSu_YT
                     Mssv NVARCHAR(50),
                     Subject NVARCHAR(50),
                     Score DECIMAL(5, 2), -- Thay đổi kích thước nếu cần
-                    PRIMARY KEY(Mssv,Subject),
-                    FOREIGN KEY (Mssv) REFERENCES Student(Mssv)
+                    CONSTRAINT UQ_Score_Mssv_Subject UNIQUE (mssv, subject),
+                    FOREIGN KEY (Mssv) REFERENCES Student(Mssv) ON DELETE CASCADE,
                 )
             END";
                 using (SqlCommand checkCommand = new SqlCommand(check, connection))
@@ -101,7 +108,7 @@ namespace QuanLiNhanSu_YT
                 string CheckCourse = "SELECT COUNT(*) FROM Score WHERE Mssv=@Mssv ";
                 using (SqlCommand CheckCourseCommand = new SqlCommand(CheckCourse, connection))
                 {
-                    CheckCourseCommand.Parameters.AddWithValue("@Subject", subject);
+                    //CheckCourseCommand.Parameters.AddWithValue("@Subject", subject);
                     //CheckCourseCommand.Parameters.AddWithValue("@MMH",Mmh);
                     CheckCourseCommand.Parameters.AddWithValue("@Mssv", mssv);
                     int count = (int)CheckCourseCommand.ExecuteScalar();
@@ -168,39 +175,24 @@ namespace QuanLiNhanSu_YT
                 
             }
         }
-        public static void ASCsort()
+        public static DataSet ASCsort()
         {
             using (SqlConnection connection = new SqlConnection(connect))
             {
-                string str = "";
+                DataSet dataSet = new DataSet();
                 connection.Open();
                 string query = @"
-                SELECT h.Id,h.Name,h.Birth,s.Id,s.Mssv,sc.Subject,sc.Score
-                FROM Human h
-                JOIN Student s ON h.Id=s.Id
-                LEFT HOIN Score sc ON s.Mssv=sc.Mssv
-                ORDER BY sc.Score ASC
+                SELECT *
+                FROM Score
 ";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        while (reader.Read())
-                        {
-                            // Lấy dữ liệu từ reader
-                            string Id = reader["Id"].ToString();
-                            string Name = reader["Name"].ToString();
-                            string Birth = reader["Birth"].ToString();
-                            string mssv = reader["Mssv"].ToString();
-                            string subject = reader["Subject"]?.ToString() ?? "N/A";
-                            decimal score = reader["Score"] != DBNull.Value ? reader.GetDecimal(reader.GetOrdinal("Score")) : 0;
-
-                            // Thực hiện hành động với dữ liệu (ví dụ: in ra)
-                            str += $"HumanId: {Id}, Name: {Name}, StudentId: {Birth}, Mssv: {mssv}, Subject: {subject}, Score: {score}\n\n";
-                        }
+                        adapter.Fill(dataSet);
                     }
                 }
-                MessageBox.Show(str);
+                return dataSet;
             }
         }
         public static string checkScore(string mssv, string Subject)// kiểm tra điểm

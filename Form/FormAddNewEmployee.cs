@@ -21,6 +21,17 @@ namespace QuanLiNhanSu_YT
             InitializeComponent();
         }
 
+        public FormAddNewEmployee(/*string id,*/ string name /*,string date*/,string mssv/*, string grade, string password*/ )
+        {
+            //TxtCCcd.Text = id;
+            txbName.Text = name;
+            //BirthTxt.Text = date;
+            txbMSSv.Text = mssv;
+            //cboDepartment.Text = grade;
+            //Passtxt.Text = password;
+            InitializeComponent();
+        }
+
         public void LoadData(string Id)
         {
             using (SqlConnection connection = new SqlConnection(connect))
@@ -60,7 +71,7 @@ namespace QuanLiNhanSu_YT
         private void btnSave_Click(object sender, EventArgs e)
         {
             //Const.NewEmploy = new Employee(name, birthDay, sex, employeeID, department, position, contract);
-            Student stu=new Student(TxtCCcd.Text,txbName.Text, BirthTxt.Text,txbMSSv.Text,cboDepartment.Text,Passtxt.Text);
+            Administrator.addStudent(TxtCCcd.Text,txbName.Text, BirthTxt.Text,txbMSSv.Text,cboDepartment.Text,Passtxt.Text);
             this.Close();
         }
 

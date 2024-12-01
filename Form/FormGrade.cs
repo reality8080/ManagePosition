@@ -27,8 +27,7 @@ namespace QuanLiNhanSu_YT
 
             // Tải dữ liệu vào DataGridView
             //BindGrid();
-            DataSet ds = GetEmployeesFromDatabase();
-            dtgvGrade.DataSource = ds;
+            loadScore();
         }
         //private void BindGrid()
         //{
@@ -52,35 +51,35 @@ namespace QuanLiNhanSu_YT
 
         //}
 
-        private DataSet GetEmployeesFromDatabase()
-        {
-            using (SqlConnection conn = new SqlConnection(connect))
-            {
-                string query = @"SELECT * FROM Score";
-                DataSet ds = new DataSet();
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    using(SqlDataAdapter adapter=new SqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(ds);
-                    }
-                }
-            return ds;
-            }
-        }
+        //private DataSet GetEmployeesFromDatabase()
+        //{
+        //    using (SqlConnection conn = new SqlConnection(connect))
+        //    {
+        //        string query = @"SELECT * FROM Score";
+        //        DataSet ds = new DataSet();
+        //        conn.Open();
+        //        using (SqlCommand cmd = new SqlCommand(query, conn))
+        //        {
+        //            using(SqlDataAdapter adapter=new SqlDataAdapter(cmd))
+        //            {
+        //                adapter.Fill(ds);
+        //            }
+        //        }
+        //    return ds;
+        //    }
+        //}
 
         private void dtgvGrade_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            dtgvGrade.AutoGenerateColumns=true;
             // Khi click vào một hàng trong DataGridView
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dtgvGrade.Rows[e.RowIndex];
-                txbSubject.Text = row.Cells[0].Value?.ToString() ?? "";
-                txbMssv.Text = row.Cells[1].Value?.ToString() ?? "";
-                txbScore.Text = row.Cells[2].Value?.ToString() ?? "0";
-            }
+            loadScore();
+        }
 
+        void loadScore()
+        {
+            DataSet ds = Coursecs.ASCsort();
+            dtgvGrade.DataSource=ds.Tables[0];
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -89,7 +88,11 @@ namespace QuanLiNhanSu_YT
             {
                 Coursecs.addScore(txbMssv.Text, txbSubject.Text, txbScore.Text);
             }
-            Coursecs.addScore(txbMssv.Text, txbSubject.Text);
+            else
+            {
+                Coursecs.addScore(txbMssv.Text, txbSubject.Text);
+            }
+           
             FormGrade_Load(this, EventArgs.Empty);
             ClearTextBoxes();
         }
@@ -97,12 +100,13 @@ namespace QuanLiNhanSu_YT
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Coursecs.deleteScore(txbMssv.Text, txbSubject.Text);
+            loadScore();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             Coursecs.deleteScore(txbMssv.Text, txbSubject.Text);
-            Coursecs.addScore(txbMssv.Text, txbSubject.Text);
+            //Coursecs.addScore(txbMssv.Text, txbSubject.Text);
             Coursecs.addScore(txbMssv.Text, txbSubject.Text, txbScore.Text);
             FormGrade_Load(this, EventArgs.Empty);
             ClearTextBoxes();
