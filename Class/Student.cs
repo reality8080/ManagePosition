@@ -26,16 +26,15 @@ namespace QuanLiNhanSu_YT
             Mssv = mssv;
             Password=password;
             CreateStudentTableIfNotExists();
-            if (!CheckStu())
-            {
-                InsertStudentRecord(Id, mssv, grade, password);
-            }
-
-
+            //if (!CheckStu())
+            //{
+                InsertStudentRecord(Id, name,date,mssv, grade, password);
+            //}
         }
 
-        private void CreateStudentTableIfNotExists()
+        public static void CreateStudentTableIfNotExists()
         {
+            CreateTableIfNotExists();
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 connection.Open();
@@ -47,7 +46,7 @@ namespace QuanLiNhanSu_YT
                         Mssv NVARCHAR(50) UNIQUE,
                         Grade NVARCHAR(50),
                         Password NVARCHAR(100),
-                        FOREIGN KEY (Id) REFERENCES Human(Id)
+                        FOREIGN KEY (Id) REFERENCES Human(Id) ON DELETE CASCADE,
                     )
                 END";
 
@@ -58,20 +57,68 @@ namespace QuanLiNhanSu_YT
             }
         }
 
-        private void InsertStudentRecord(string id, string mssv, string grade, string password)
+        private void InsertStudentRecord(string id, string name,string birth,string mssv, string grade, string password)
         {
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 connection.Open();
-                
-                string insertStu = "INSERT INTO Student(Id, Mssv, Grade, Status, Password) VALUES (@Id, @Mssv, @Grade, @Status, @Password)";
-                using (SqlCommand insert = new SqlCommand(insertStu, connection))
+
+                //string insertStu = "INSERT INTO Student(Id, Mssv, Grade, Password) VALUES (@Id, @Mssv, @Grade, @Password)";
+                //using (SqlCommand insert = new SqlCommand(insertStu, connection))
+                //{
+                //    insert.Parameters.AddWithValue("@Id", Id);
+                //    insert.Parameters.AddWithValue("@Mssv", mssv);
+                //    insert.Parameters.AddWithValue("@Grade", grade);
+                //    insert.Parameters.AddWithValue("@Password", password);
+                //    insert.ExecuteNonQuery();
+                //}
+                SqlTransaction transaction = connection.BeginTransaction();
+                try
                 {
-                    insert.Parameters.AddWithValue("@Id", Id);
-                    insert.Parameters.AddWithValue("@Mssv", mssv);
-                    insert.Parameters.AddWithValue("@Grade", grade);
-                    insert.Parameters.AddWithValue("@Password", password);
-                    insert.ExecuteNonQuery();
+                    string queryStu = @"
+                        MERGE INTO Student AS target
+                        USING(VALUES (@Id,@Mssv,@Grade,@Password)) AS Source (Id,Mssv,Grade,Password)
+                        ON target.Id = source.Id
+                        WHEN MATCHED THEN
+                            UPDATE SET Id = source.Id,
+                            Mssv =source.Mssv,
+                            Grade= source.Grade,
+                            Password =source.Password
+                        WHEN NOT MATCHED THEN
+                            INSERT (Id,Mssv,Grade,Password) 
+                            VALUES (source.Id,source.Mssv,source.Grade,source.Password);
+";
+                    using (SqlCommand command = new SqlCommand(queryStu, connection, transaction))
+                    {
+                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@Mssv", Mssv);
+                        command.Parameters.AddWithValue("@Grade", grade);
+                        command.Parameters.AddWithValue("@Password", password);
+                        command.ExecuteNonQuery();
+                    }
+//                    string queryScore = @"
+//                        MERGE INTO Score AS target
+//                        USING(VALUES (@Mssv,@Grade,@) AS Source (Id,Name,Birth))
+//                        ON target.Id = source.Id
+//                        WHEN MATCHED THEN
+//                            UPDATE SET Name = source.Name, Birth = source.Birth
+//                        WHEN NOT MATCHED THEN
+//                            INSERT (Mssv, Name, BirthDate) 
+//                            VALUES (source.Mssv, source.Name, source.BirthDate);
+//";
+//                    using (SqlCommand command = new SqlCommand(queryScore, connection, transaction))
+//                    {
+//                        command.Parameters.AddWithValue("@Id", id);
+//                        command.Parameters.AddWithValue("@Name", name);
+//                        command.Parameters.AddWithValue("@Birth", birth);
+//                        command.ExecuteNonQuery();
+//                    }
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback(); // Rollback nếu có lỗi
+                    throw;
                 }
             }
         }
@@ -96,44 +143,44 @@ namespace QuanLiNhanSu_YT
             Coursecs.addScore(mssv, subject);
         }
 
-        public override string ToString()
-        {
-            string str = $"{base.ToString()}\n";
-            //try
-            //{
-            using (SqlConnection connection = new SqlConnection(connect))
-            {
-                connection.Open();
-                string query = "SELECT Mssv, Grade FROM Student WHERE Id = @Id";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Id", Id);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            str += $"Mssv: {reader.GetString(0)}\n" +
-                                   $"Grade: {reader.GetString(1)}\n";
-                        }
-                    }
-                }
+        //public override string ToString()
+        //{
+        //    string str = $"{base.ToString()}\n";
+        //    //try
+        //    //{
+        //    using (SqlConnection connection = new SqlConnection(connect))
+        //    {
+        //        connection.Open();
+        //        string query = "SELECT Mssv, Grade FROM Student WHERE Id = @Id";
+        //        using (SqlCommand command = new SqlCommand(query, connection))
+        //        {
+        //            command.Parameters.AddWithValue("@Id", Id);
+        //            using (SqlDataReader reader = command.ExecuteReader())
+        //            {
+        //                if (reader.Read())
+        //                {
+        //                    str += $"Mssv: {reader.GetString(0)}\n" +
+        //                           $"Grade: {reader.GetString(1)}\n";
+        //                }
+        //            }
+        //        }
 
-                query = "SELECT Subject, Score FROM Score WHERE Mssv=@Mssv";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Mssv", Mssv);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            str +=$"Subject: {reader.GetString(1)}\n" +
-                                $"Score: {(reader.IsDBNull(2)? "" : reader.GetString(2))}\n";
-                        }
-                    }
-                }
-                return str;
-            }
-        }
+        //        query = "SELECT Subject, Score FROM Score WHERE Mssv=@Mssv";
+        //        using (SqlCommand command = new SqlCommand(query, connection))
+        //        {
+        //            command.Parameters.AddWithValue("@Mssv", Mssv);
+        //            using (SqlDataReader reader = command.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    str +=$"Subject: {reader.GetString(1)}\n" +
+        //                        $"Score: {(reader.IsDBNull(2)? "" : reader.GetString(2))}\n";
+        //                }
+        //            }
+        //        }
+        //        return str;
+        //    }
+        //}
 
         //        public static void ASCSort()
         //        {
@@ -178,7 +225,7 @@ namespace QuanLiNhanSu_YT
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 string query = @"
-            SELECT h.Id, h.Name, h.Birth,s.Id, s.Mssv, sc.Subject, sc.Score
+            SELECT DISTINCT h.Id, h.Name, h.Birth, s.Mssv, s.Grade,sc.Subject, sc.Score
             FROM Human h
             JOIN Student s ON h.Id = s.Id
             LEFT JOIN Score sc ON s.Mssv = sc.Mssv
@@ -237,5 +284,9 @@ namespace QuanLiNhanSu_YT
                 }
             }
         }
+        //public static void upDate(string id, string name, string date, string mssv, string grade, string password)
+        //{
+
+        //}
     } 
 }// Them class score

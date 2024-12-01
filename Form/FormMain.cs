@@ -22,7 +22,7 @@ namespace QuanLiNhanSu_YT
         public FormMain()
         {
             InitializeComponent();
-            this.Load += new System.EventHandler(this.FormMain_Load);
+            //this.Load += new System.EventHandler(this.FormMain_Load);
         }
 
         
@@ -58,11 +58,11 @@ namespace QuanLiNhanSu_YT
             //{
             //    MessageBox.Show($"Lỗi khi lấy dữ liệu: {ex.Message}");
             //}
-            if (ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu để hiển thị.");
-                return;
-            }
+            //if (ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
+            //{
+            //    MessageBox.Show("Không có dữ liệu để hiển thị.");
+            //    return;
+            //}
             dtgvEmployee.DataSource = ds.Tables[0];
             //dtgvEmployee.DataSource = ds.Tables[1];
             //dtgvEmployee.DataSource = ds.Tables[2];
@@ -89,6 +89,8 @@ namespace QuanLiNhanSu_YT
         private void FormMain_Load(object sender, EventArgs e)
         {
             btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = false;
+            Student.CreateStudentTableIfNotExists();
+            Coursecs.CreateTableCourse();
             Decentralization();
 
             LoadListEmployee();
@@ -153,14 +155,14 @@ namespace QuanLiNhanSu_YT
                 MessageBox.Show("Không tìm thấy thông tin sinh viên.");
             }
         }
-        private DataSet SearchStu(string name, string employeeCode)
+        private DataSet SearchStu(string name, string mssv)
         {
             DataSet dataSet = new DataSet();
 
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 string query = @"
-            SELECT h.Id, h.Name, h.Birth,s.Id, s.Mssv, sc.Subject, sc.Score
+            SELECT h.Id, h.Name, h.Birth, s.Mssv, s.Grade,sc.Subject, sc.Score
             FROM Human h
             JOIN Student s ON h.Id = s.Id
             LEFT JOIN Score sc ON s.Mssv = sc.Mssv
@@ -168,6 +170,9 @@ namespace QuanLiNhanSu_YT
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@Name",name);
+                    command.Parameters.AddWithValue("@Mssv", mssv);
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
                         // Open the connection
@@ -206,14 +211,15 @@ namespace QuanLiNhanSu_YT
         private void btnEdit_Click(object sender, EventArgs e)
         {
             FormAddNewEmployee f = new FormAddNewEmployee();
-            f.FormClosed += F_FormClosed1; 
+            f.FormClosed += F_FormClosed;
             f.ShowDialog();
-        }
-        private void F_FormClosed1(object sender, FormClosedEventArgs e)
-        {
 
-            LoadListEmployee();
         }
+        //private void F_FormClosed1(object sender, FormClosedEventArgs e)
+        //{
+
+        //    LoadListEmployee();
+        //}
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -225,6 +231,7 @@ namespace QuanLiNhanSu_YT
             //ListEmployee.Instance.ListEmploy.RemoveAt(index);
 
             Delete(txbName.Text,txbStudentID.Text);
+            LoadListEmployee();
         }
 
         private void Delete(string name, string mssv)
@@ -276,6 +283,7 @@ namespace QuanLiNhanSu_YT
         {
             FormGrade f = new FormGrade();
             f.ShowDialog();
+            LoadListEmployee();
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -286,6 +294,11 @@ namespace QuanLiNhanSu_YT
         private void thốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Const.AccountType < 3) MessageBox.Show("Bạn không phải admin", "Cảnh báo");
+        }
+
+        private void tsmiEmployee_Click(object sender, EventArgs e)
+        {
+            btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = true;
         }
     }
 }

@@ -25,12 +25,19 @@ namespace QuanLiNhanSu_YT
             Password = password;
         }
 
-        public Student addStudent(string id, string name, string date, string mssv, string grade, string password)
+        public static void addStudent(string id, string name, string date, string mssv, string grade, string password)
         {
-            return new Student(id,name,date,mssv,grade,password);
+            Student stu= new Student(id,name,date,mssv,grade,password);
+            Coursecs.addScore(mssv,"");
+            //return stu;
         }
 
-        public Teacher addTeacher(string id, string name, string birth, string mscb, string subject, string edcation, string password)
+        public static void updateStu(string id, string name, string date, string mssv, string grade, string password)
+        {
+
+        }
+
+        public static Teacher addTeacher(string id, string name, string birth, string mscb, string subject, string edcation, string password)
         {
             return new Teacher(mscb,password);
         }
@@ -39,19 +46,19 @@ namespace QuanLiNhanSu_YT
         //{
         //    Coursecs.addCourse(NameTeacher, subject);
         //}
-        public void addCourse(string mssv,string NameTeacher, string Subject)// Thêm môn học cho sinh viên
+        public static void addCourse(string mssv, string Subject)// Thêm môn học cho sinh viên
         {
-            Coursecs.addScore(mssv, NameTeacher, Subject);
+            Coursecs.addScore(mssv, Subject);
         }
-        public void addScore(string mssv, string Subject, string score)//Thêm điểm cho sinh viên
+        public static void addScore(string mssv, string Subject, string score)//Thêm điểm cho sinh viên
         {
             Coursecs.addScore(mssv, Subject, score);
         }
-        public void Delete(string mssv, string Subject)
+        public static void Delete(string mssv, string Subject)
         {
             Coursecs.deleteScore(mssv ,Subject);
         }
-        public void FindScore(string mssv, string Subject)
+        public static void FindScore(string mssv, string Subject)
         {
             Coursecs.checkScore(mssv,Subject);
         }

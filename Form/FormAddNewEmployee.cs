@@ -60,7 +60,7 @@ namespace QuanLiNhanSu_YT
         private void btnSave_Click(object sender, EventArgs e)
         {
             //Const.NewEmploy = new Employee(name, birthDay, sex, employeeID, department, position, contract);
-            Student stu=new Student(TxtCCcd.Text,txbName.Text, BirthTxt.Text,txbMSSv.Text,cboDepartment.Text,Passtxt.Text);
+            Administrator.addStudent(TxtCCcd.Text,txbName.Text, BirthTxt.Text,txbMSSv.Text,cboDepartment.Text,Passtxt.Text);
             this.Close();
         }
 
