@@ -19,8 +19,10 @@ namespace QuanLiNhanSu_YT
         private bool _status=false;
         private string _password;
 
+        private List<string> _list;
         public string Mscb { get => _mscb;private set => _mscb = value; }
         public string Password { get => password;private set => password = value; }
+        public List<string> List { get => _list; set => _list = value; }
 
         public Teacher(string mscb, string password)
         {

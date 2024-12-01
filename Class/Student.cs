@@ -143,6 +143,7 @@ namespace QuanLiNhanSu_YT
             Coursecs.addScore(mssv, subject);
         }
 
+
         //public override string ToString()
         //{
         //    string str = $"{base.ToString()}\n";
@@ -218,6 +219,28 @@ namespace QuanLiNhanSu_YT
         //            }
         //        }
 
+        public static DataSet Get(string mssv)
+        {
+            DataSet ds = new DataSet();
+            using(SqlConnection connection = new SqlConnection(connect))
+            {
+                connection.Open();
+                string query = @"
+            SELECT DISTINCT h.Id, h.Name, h.Birth, s.Mssv, s.Grade, sc.Subject, sc.Score, s.Password
+            FROM Human h
+            JOIN Student s ON h.Id = s.Id
+            LEFT JOIN Score sc ON s.Mssv = sc.Mssv
+            WHERE s.Mssv LIKE @Mssv
+            ORDER BY h.Name ASC";
+                using(SqlDataAdapter adapter=new SqlDataAdapter(query, connection))
+                {
+                    adapter.SelectCommand.Parameters.AddWithValue("@Mssv",$"%{mssv}%");
+                    adapter.Fill(ds, "Students");
+                }
+            }
+            return ds;
+        }
+
         public static DataSet ASCSort()
         {
             DataSet dataSet = new DataSet();
@@ -246,6 +269,36 @@ namespace QuanLiNhanSu_YT
 
             return dataSet;
         }
+
+        public static DataSet ASCSort_ad()
+        {
+            DataSet dataSet = new DataSet();
+
+            using (SqlConnection connection = new SqlConnection(connect))
+            {
+                string query = @"
+            SELECT DISTINCT h.Id, h.Name, h.Birth, s.Mssv, s.Grade,sc.Subject, sc.Score,s.Password
+            FROM Human h
+            JOIN Student s ON h.Id = s.Id
+            LEFT JOIN Score sc ON s.Mssv = sc.Mssv
+            ORDER BY h.Name ASC";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        // Open the connection
+                        connection.Open();
+
+                        // Fill the DataSet
+                        adapter.Fill(dataSet);
+                    }
+                }
+            }
+
+            return dataSet;
+        }
+
         public static DataSet GetDataSet_S()
         {
             DataSet dataSet =GetDataSet_H();

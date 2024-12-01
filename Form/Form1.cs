@@ -39,7 +39,8 @@ namespace QuanLiNhanSu_YT
             }
             if (Student.checkUser(userName, passWord))
             {
-                Const.AccountType = 2; return true;
+                Const.Mssv=userName;
+                Const.AccountType = 1; return true;
             }
             return false;
         }
@@ -50,6 +51,10 @@ namespace QuanLiNhanSu_YT
             string passWord = txbPassWord.Text;
             if (checkLogin(userName, passWord))
             {
+                if (Const.AccountType == 2)
+                {
+                    Const.TeacherCourse = teacher.List;
+                }
                 FormMain f = new FormMain();
                 f.Show();
                 this.Hide();
@@ -78,6 +83,7 @@ namespace QuanLiNhanSu_YT
         private void Form1_Load(object sender, EventArgs e)
         {
             teacher = new Teacher("Reality", "1102");
+            teacher.List = new List<string>(){"Toan","Li","Hoa"};
             admin = new Administrator("Tran", "1104");
         }
 

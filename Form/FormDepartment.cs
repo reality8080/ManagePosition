@@ -68,5 +68,10 @@ namespace QuanLiNhanSu_YT
             Const.ListDepartment.RemoveAt(index);
             LoadListDepartment();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

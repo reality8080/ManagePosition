@@ -31,18 +31,35 @@ namespace QuanLiNhanSu_YT
         {
             if(Const.AccountType == 1)
             {
-                tsmiDepartment.Enabled = tsmiEmployee.Enabled = tsmiUser.Enabled = false;
+                tsmiGrade.Enabled = tsmiDepartment.Enabled = tsmiUser.Enabled = mônHọcToolStripMenuItem.Enabled = tsmiEmployee.Enabled = false;
             }
-            if(Const.AccountType == 2)
+            if (Const.AccountType == 2)
             {
-                tsmiDepartment.Enabled = tsmiUser.Enabled =  false;
+                /*tsmiGrade.Enabled = */tsmiDepartment.Enabled = tsmiEmployee.Enabled = tsmiUser.Enabled = false;
             }
         }
 
         void LoadListEmployee()
         {
+            DataSet ds = null;
             //dtgvEmployee.Rows.Clear();
-            DataSet ds = Student.ASCSort();
+            if (Const.AccountType == 1)
+            {
+                ds = Student.Get(Const.Mssv);
+                dtgvEmployee.DataSource = ds.Tables[0];
+            }
+            if (Const.AccountType == 2)
+            {
+                ds = Student.ASCSort_ad();
+                dtgvEmployee.DataSource = ds.Tables[0];
+                return;
+            }
+            if (Const.AccountType == 3)
+            {
+                ds=Student.ASCSort();
+                dtgvEmployee.DataSource = ds.Tables[0];
+            }
+             
             //try
             //{
             //    using (SqlConnection conn = new SqlConnection(connect))
@@ -63,7 +80,7 @@ namespace QuanLiNhanSu_YT
             //    MessageBox.Show("Không có dữ liệu để hiển thị.");
             //    return;
             //}
-            dtgvEmployee.DataSource = ds.Tables[0];
+
             //dtgvEmployee.DataSource = ds.Tables[1];
             //dtgvEmployee.DataSource = ds.Tables[2];
 
@@ -297,12 +314,18 @@ namespace QuanLiNhanSu_YT
 
         }
 
-        private void tsmiEmployee_Click(object sender, EventArgs e)
+        //private void tsmiEmployee_Click(object sender, EventArgs e)
+        //{
+        //    btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = true;
+        //}
+
+        private void mônHọcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = true;
+            Course course = new Course();
+            course.ShowDialog();
         }
 
-        private void tsmiEmployee_Click(object sender, EventArgs e)
+        private void tsmiEmployee_Click_1(object sender, EventArgs e)
         {
             btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = true;
         }

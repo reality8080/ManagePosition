@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txbSubject = new System.Windows.Forms.TextBox();
             this.txbMssv = new System.Windows.Forms.TextBox();
             this.SubjectLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,16 +37,9 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.dtgvGrade = new System.Windows.Forms.DataGridView();
+            this.CBOSubject = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGrade)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txbSubject
-            // 
-            this.txbSubject.Location = new System.Drawing.Point(120, 59);
-            this.txbSubject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbSubject.Name = "txbSubject";
-            this.txbSubject.Size = new System.Drawing.Size(181, 22);
-            this.txbSubject.TabIndex = 0;
             // 
             // txbMssv
             // 
@@ -138,11 +130,28 @@
             this.dtgvGrade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvGrade_CellClick);
             this.dtgvGrade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvGrade_CellContentClick);
             // 
+            // CBOSubject
+            // 
+            this.CBOSubject.BackColor = System.Drawing.Color.Transparent;
+            this.CBOSubject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBOSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBOSubject.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CBOSubject.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CBOSubject.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBOSubject.ForeColor = System.Drawing.Color.Black;
+            this.CBOSubject.ItemHeight = 30;
+            this.CBOSubject.Location = new System.Drawing.Point(120, 56);
+            this.CBOSubject.Name = "CBOSubject";
+            this.CBOSubject.Size = new System.Drawing.Size(181, 36);
+            this.CBOSubject.TabIndex = 10;
+            this.CBOSubject.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            // 
             // FormGrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 360);
+            this.Controls.Add(this.CBOSubject);
             this.Controls.Add(this.dtgvGrade);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
@@ -152,7 +161,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SubjectLabel);
             this.Controls.Add(this.txbMssv);
-            this.Controls.Add(this.txbSubject);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormGrade";
             this.Text = "FormGrade";
@@ -164,8 +172,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txbSubject;
         private System.Windows.Forms.TextBox txbMssv;
         private System.Windows.Forms.Label SubjectLabel;
         private System.Windows.Forms.Label label2;
@@ -175,5 +181,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.DataGridView dtgvGrade;
+        private Guna.UI2.WinForms.Guna2ComboBox CBOSubject;
     }
 }

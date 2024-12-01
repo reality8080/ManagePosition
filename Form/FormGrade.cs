@@ -24,7 +24,7 @@ namespace QuanLiNhanSu_YT
         {
             // Gắn sự kiện CellClick cho DataGridView
             dtgvGrade.CellClick += dtgvGrade_CellClick;
-
+            CBOSubject.DataSource=Const.TeacherCourse;
             // Tải dữ liệu vào DataGridView
             //BindGrid();
             loadScore();
@@ -86,11 +86,11 @@ namespace QuanLiNhanSu_YT
         {
             if (txbScore != null)
             {
-                Coursecs.addScore(txbMssv.Text, txbSubject.Text, txbScore.Text);
+                Coursecs.addScore(txbMssv.Text, CBOSubject.Text, txbScore.Text);
             }
             else
             {
-                Coursecs.addScore(txbMssv.Text, txbSubject.Text);
+                Coursecs.addScore(txbMssv.Text, CBOSubject.Text);
             }
            
             FormGrade_Load(this, EventArgs.Empty);
@@ -99,21 +99,21 @@ namespace QuanLiNhanSu_YT
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            Coursecs.deleteScore(txbMssv.Text, txbSubject.Text);
+            Coursecs.deleteScore(txbMssv.Text, CBOSubject.Text);
             loadScore();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Coursecs.deleteScore(txbMssv.Text, txbSubject.Text);
+            Coursecs.deleteScore(txbMssv.Text, CBOSubject.Text);
             //Coursecs.addScore(txbMssv.Text, txbSubject.Text);
-            Coursecs.addScore(txbMssv.Text, txbSubject.Text, txbScore.Text);
+            Coursecs.addScore(txbMssv.Text, CBOSubject.Text, txbScore.Text);
             FormGrade_Load(this, EventArgs.Empty);
             ClearTextBoxes();
         }
         private void ClearTextBoxes()
         {
-            txbSubject.Clear();
+            CBOSubject.Items.Clear();
             txbMssv.Clear();
             txbScore.Clear();
         }
@@ -128,11 +128,15 @@ namespace QuanLiNhanSu_YT
                 DataGridViewRow row = dtgvGrade.Rows[e.RowIndex];
 
                 // Gán giá trị vào các ô TextBox
-                txbSubject.Text = row.Cells["FullName"].Value?.ToString() ?? "";
+                CBOSubject.Text = row.Cells["FullName"].Value?.ToString() ?? "";
                 txbMssv.Text = row.Cells["StudentID"].Value?.ToString() ?? "";
                 txbScore.Text = row.Cells["Grade"].Value?.ToString() ?? "0";
             }
         }
 
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 };
